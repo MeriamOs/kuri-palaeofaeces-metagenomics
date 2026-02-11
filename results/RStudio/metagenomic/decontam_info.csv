@@ -1,0 +1,31 @@
+Sample,decontam,Site
+MS11669,FALSE,Whenua Hou historic
+MS11670,FALSE,Whenua Hou historic
+MS11673,FALSE,Whenua Hou historic
+MS11674,FALSE,Whenua Hou pre-contact
+MS11675,FALSE,Whenua Hou pre-contact
+MS11676,FALSE,Whenua Hou pre-contact
+MS11677,FALSE,Whenua Hou pre-contact
+MS11678,FALSE,Whenua Hou pre-contact
+MS11679,FALSE,Long Bay
+MS11683,FALSE,Long Bay
+MS11684,FALSE,Long Bay
+MS11686,FALSE,Long Bay
+MS11770,FALSE,Kahukura
+MS11771,FALSE,Kahukura
+MS11774,FALSE,Kahukura
+MS11775,FALSE,Kahukura
+Blank1_WH,TRUE,blank
+Blank2_WH,TRUE,blank
+KH_blank_1,TRUE,blank
+KH_blank_2,TRUE,blank
+LB_blank_1,TRUE,blank
+LB_blank_2,TRUE,blank
+MS11102,TRUE,arch_bone
+MS11103,TRUE,arch_bone
+MS11107,TRUE,arch_bone
+MS11108,TRUE,arch_bone
+MS10790,TRUE,arch_bone
+MS10902,TRUE,arch_bone
+MS10903,TRUE,arch_bone
+MS10904,TRUE,arch_bone

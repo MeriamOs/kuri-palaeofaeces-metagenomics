@@ -1,0 +1,108 @@
+Sample,Country, read_count , Collapsed reads , host_mapped ,host_DNA,host_DNA_num, unmapped , Group ,library_name,Individual,AD,Sex,Breed,Diet,sample_alias
+SRR14842426,Laos," 30,251,043 ","7,020,565","20,771",0.3,0,"6,977,543",< 0.02,1,L2 (A1/A2/A3),Laos Dog,,,Unknown,1.CACTCAATTC.CACAACTTAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842425,US," 8,848,343 ","3,506,496","17,892",0.51,1,"3,483,284",< 0.02,10,Morgan P1 (A/B),Diet_experiment,,Beagle,Unknown,10.GAACGCAATA.ACAGTAAGAT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842407,Laos," 26,411,570 ","5,079,112","55,536",1.09,1,"4,892,740",< 0.02,101,L22 (A1/A2/A3/B1/B2/B3),Laos Dog,,,Unknown,101.AGAATTCGCC.GAGCTTGCCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842396,Laos," 28,263,162 ","3,960,335","2,429",0.06,0,"3,945,630",< 0.02,103,L3 (B1/B2),Laos Dog,,,Unknown,103.AGATTAAGTG.CCAAGAGGTG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842385,Laos," 28,231,377 ","5,120,185","3,130",0.06,0,"5,072,907",< 0.02,105,L21 (A1/A2/B1/B2/B3),Laos Dog,,,Unknown,105.GTGGACAAGT.AAGGCCACGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842374,Laos," 7,673,231 ","1,345,103","22,312",1.66,2,"1,313,639",0.02 - 0.1,106,L23 (A1/A2/B1/B2),Laos Dog,,,Unknown,106.CGATCTGTGA.AGTCTTCCTA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842363,Laos," 8,090,024 ","1,542,967","1,073,707",69.59,70,"199,718",> 0.5,107,L8 (A/B),Laos Dog,,,Unknown,107.CTTCCTAGGA.ATACTCTAGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842352,Laos," 33,328,893 ","4,837,148","9,502",0.2,0,"4,805,313",< 0.02,108,L13 (A1/A2/B1/B2/B3),Laos Dog,,,Unknown,108.AGCTAAGCGG.GCGTATTAAT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842341,Laos," 27,921,046 ","3,803,352","12,574",0.33,0,"3,762,396",< 0.02,109,L15 (A1/A2/B1/B2),Laos Dog,,,Unknown,109.GAGGCCTATT.TCCGGACTAG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842330,US," 6,836,007 ","4,301,733","11,512",0.27,0,"4,286,539",< 0.02,11,Brandy P1 A,Diet_experiment,,Beagle,Unknown,11.AGTACTCATG.ACCACGACAT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842424,Laos," 8,051,086 ","2,321,819",654,0.03,0,"2,318,973",< 0.02,110,L14 (A1/A2/A3/B1/B2),Laos Dog,,,Unknown,110.CCAATGATAC.CGGCACACTC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842416,Laos," 9,502,237 ","1,654,142",772,0.05,0,"1,649,242",< 0.02,111,L3 (A1/A2),Laos Dog,,,Unknown,111.TATAACAGCT.TTATACGCGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842415,Laos," 9,387,823 ","2,383,494","162,468",6.82,7,"2,179,423",0.02 - 0.1,112,L16 (A1/A2/B1/B2/B3),Laos Dog,,,Unknown,112.ATTATGTCTC.GCTCTTAACT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842414,US," 4,315,134 ","3,016,062","11,153",0.37,0,"3,001,610",< 0.02,12,Brandy P1 B,Diet_experiment,,Beagle,Unknown,12.GGTAGAATTA.TGATGGCTAC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842413,South Africa," 6,663,254 ","3,843,320","2,824",0.07,0,"3,838,434",< 0.02,124,SAJHHOND4 A1,missing,,,,124.CAGCGGTAGA.CACCTGTTGC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842412,South Africa," 5,005,733 ","2,658,365","5,692",0.21,0,"2,650,412",< 0.02,125,SALPHOND4 (A1/B1),Urban,F (s),Africanis,Unknown,125.GTAACAATCT.GTATACAGAG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842411,South Africa," 10,056,238 ","3,998,366","149,444",3.74,4,"3,812,120",0.02 - 0.1,126,SALPHOND1 B1,missing,,,,126.TGCAAGATAA.CCGTCCTCAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842410,US," 9,217,579 ","3,356,992","4,753",0.14,0,"3,350,181",< 0.02,13,Dany P2 (A/B),Diet_experiment,,Beagle,Unknown,13.TAATTAGCGT.TTCTTAACCA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842409,US," 7,390,650 ","2,781,419","1,571",0.06,0,"2,778,764",< 0.02,14,Jacky P2 (A/B),Diet_experiment,,Beagle,Unknown,14.ATTAACAAGG.ACGAACAACA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842408,US," 5,532,571 ","1,764,647","11,984",0.68,1,"1,749,324",< 0.02,15,Morgan P2 A,Diet_experiment,,Beagle,Unknown,15.TGATGGCTAC.ATGTTGTTGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842406,US," 5,807,892 ","3,482,406","14,131",0.41,0,"3,464,232",< 0.02,16,missing ,Diet_experiment,,,,16.GAATTACAAG.CTGAGCCGGT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842405,US," 5,557,036 ","3,573,557","6,500",0.18,0,"3,564,618",< 0.02,17,Brandy P2 (A/B),Diet_experiment,,Beagle,Unknown,17.TAGAATTGGA.TCAGATTAAC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842404,India," 5,991,777 ","3,439,591","9,818",0.29,0,"3,426,212",< 0.02,18,I1 (A1/A2),Shelter,F,,Shelter,18.AGGCAGCTCT.ACGTTAGCCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842403,India," 8,076,974 ","4,139,043","8,549",0.21,0,"4,065,040",< 0.02,19,missing ,missing,,,,19.ATCGGCGAAG.AATTCTTGGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842402,India," 8,451,848 ","4,734,953","3,806,678",80.4,80,"136,882",> 0.5,2,Soyie B,Shelter,0,,Shelter,2.TCTCACACGC.TCACTGTCCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842401,India," 8,391,571 ","4,132,231","5,143",0.12,0,"4,122,492",< 0.02,20,I2 (A1/A2),Shelter,F,,Shelter,20.CCGTGACCGA.CAACGTTCGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842400,India," 6,056,549 ","3,127,856","6,085",0.19,0,"3,116,983",< 0.02,21,missing ,missing,,,,21.ATACTTGTTC.TCGGCGGTTA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842399,India," 8,128,781 ","3,517,794","2,734",0.08,0,"3,498,555",< 0.02,22,I3 (A1/A2/B1/B2),Shelter,M,,Shelter,22.TCCGCCAATT.CAGCACGGAG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842398,India," 9,201,650 ","3,150,859","2,627",0.08,0,"3,141,742",< 0.02,23,I4 (A1/A2/B1/B2),Shelter,F,,Shelter,23.AGGACAGGCC.AGCTGGAATG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842397,India," 6,195,414 ","1,914,561",702,0.04,0,"1,910,397",< 0.02,24,I5 (A1/A2/B1/B2),Shelter,0,,Shelter,24.AGAGAACCTA.TAGCATAACC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842395,India," 8,677,286 ","2,074,275","1,187",0.06,0,"2,064,746",< 0.02,25,I6 (A/B),Shelter,M,,Shelter,25.GATATTGTGT.ACCGTGTGGT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842394,India," 8,659,500 ","3,118,800","1,698,717",54.47,54,"998,593",> 0.5,258,IS8 (A/B),Street,M,,Street,258.AGTTAATGCT.CGGCTGCAGT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842393,India," 6,899,163 ","3,522,824","1,028",0.03,0,"3,517,590",< 0.02,26,I8 (A1/A2/B),Shelter,M,,Shelter,26.CGTACAGGAA.AGAGAACCTA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842392,India," 6,935,995 ","2,166,421","74,146",3.42,3,"2,075,306",0.02 - 0.1,27,IS10 (A1/A2/B),Street,M,,Street,27.CTGCGTTACC.TCGAGCCATA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842391,India," 7,034,051 ","3,468,202","1,663,887",47.98,48,"1,420,774",0.1 - 0.5,28,IS9 (A/B),Street,M,,Street,28.AGGCCGTGGA.AACGCACGAG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842390,India," 7,663,585 ","3,121,821","23,988",0.77,1,"3,087,449",< 0.02,29,IS3 A,Street,M,,Street,29.AGGAGGTATC.TGCCAACTGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842389,India," 7,385,608 ","3,951,668","7,861",0.2,0,"3,939,533",< 0.02,30,missing ,missing,,,,30.GCTGACGTTG.AATGCGAACA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842388,India," 7,748,961 ","2,569,595","1,623,554",63.18,63,"565,452",> 0.5,31,IS12 (A/B),Street,M,,Street,31.TCTAGGCGCG.TTAACCTTCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842387,India," 7,650,816 ","2,368,705","812,408",34.3,34,"1,366,504",0.1 - 0.5,32,IS4 (A/B),Street,M,,Street,32.ATAGCCAAGA.CAGTGGCACT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842386,India," 8,261,850 ","2,840,716","879,220",30.95,31,"1,743,875",0.1 - 0.5,33,IS5 (a/B),Street,M,,Street,33.TTCGGTGTGA.ATACTTGTTC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842384,India," 8,778,594 ","3,537,606",638,0.02,0,"3,535,585",< 0.02,34,I7 (A1/A2/B),Shelter,F,,Shelter,34.ATGTAACGTT.CAGCAATCGT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842383,India," 7,735,067 ","3,593,848","9,628",0.27,0,"3,567,346",< 0.02,35,I9 (A1/A2),Shelter,M,,Shelter,35.AACGAGGCCG.ATCCAGGTAT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842382,India," 6,311,070 ","1,982,149","4,783",0.24,0,"1,967,385",< 0.02,36,,missing,,,,36.TGGTGTTATG.TAGAATTGGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842381,India," 65,503,036 ","20,639,882","12,592",0.06,0,"20,342,880",< 0.02,38,I10 (A1/A2/A3/B1/B2),Shelter,M,,Shelter,38.CCAGGCACCA.TAATTAGCGT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842380,India," 6,557,652 ","2,844,778","62,140",2.18,2,"2,764,716",0.02 - 0.1,39,IS7 (A1/A2/B),Street,M,,Street,39.CCGGTTCCTA.CTCGAATATA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842379,South Africa," 8,966,473 ","4,080,543","288,987",7.08,7,"3,733,057",0.02 - 0.1,4,SALPHOND3 (A1/B1),Urban,F (s),Africanis,Unknown,4.ATATGCATGT.CCAGGCACCA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842378,India," 7,944,442 ","2,469,697","9,935",0.4,0,"2,455,783",< 0.02,40,Laila (A/B),Shelter,F,,Shelter,40.GGCCAATATT.TATCGGACCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842377,India," 7,232,885 ","3,589,398","1,821,129",50.74,51,"1,300,584",> 0.5,41,IS2 (A/B),Street,M,,Street,41.GAATACCTAT.ACTCTATTGT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842376,India," 26,977,725 ","4,435,972","216,142",4.87,5,"4,169,751",0.02 - 0.1,42,IS11 B,Street,F,,Street,42.TACGTGAAGG.CTAATAACCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842375,India," 7,419,101 ","1,663,225","346,902",20.86,21,"1,237,390",0.1 - 0.5,43,IS1 (A/B),Street,M,,Street,43.CTTATTGGCC.ACTTGTTATC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842373,India," 7,061,474 ","3,402,697","2,212,040",65.01,65,"672,053",> 0.5,44,IS6 (A/B),Street,M,,Street,44.ACAACTACTG.TGTGATAACT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842372,India," 7,718,795 ","3,293,056","2,116,638",64.28,64,"691,906",> 0.5,45,IS13 A,Street,M,,Street,45.GTTGGATGAA.TTACCTGGAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842371,India," 7,997,661 ","3,163,651","1,287",0.04,0,"3,161,434",< 0.02,46,Sihar A,Shelter,F,,Shelter,46.AATCCAATTG.CCTCTACATG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842370,India," 7,547,785 ","3,145,109",570,0.02,0,"3,143,993",< 0.02,47,,missing,,,,47.TATGATGGCC.TATGACAATC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842369,India," 8,765,118 ","2,442,756","2,349",0.1,0,"2,438,825",< 0.02,48,I11 (A1/A2/B1/B2),Shelter,F,,Shelter,48.CGCAGCAATT.ATAGCGGAAT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842368,India," 6,074,259 ","3,674,744","20,070",0.55,1,"3,645,724",< 0.02,49,Scott (A/B1/B2),Shelter,M,,Shelter,49.ACGTTCCTTA.CACAGCGGTC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842367,South Africa," 8,325,809 ","5,396,605","335,886",6.22,6,"4,985,510",0.02 - 0.1,5,SALPHOND7 (A1/A2/B1/B2),Suburban,M,Labrador,Unknown,5.ATGGCGCCTG.AGGCCGTGGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842366,India," 17,903,802 ","5,638,091","3,417,462",60.61,61,"1,436,828",> 0.5,50,IS14 (A/B),Street,M,,Street,50.CCGCGTATAG.CCGGTTCCTA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842365,India," 8,002,135 ","3,057,949","2,957",0.1,0,"3,046,480",< 0.02,51,I12 (A/B1/B2),Shelter,M,,Shelter,51.GATTCTGAAT.GTCCACCGCT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842364,India," 5,943,473 ","4,333,014","35,541",0.82,1,"4,288,467",< 0.02,52,Buddy (A/B),Shelter,F,,Shelter,52.TAGAGAATAC.CGAATCTATA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842362,India," 6,850,265 ","3,486,708","9,892",0.28,0,"3,473,857",< 0.02,53,I13 A,Shelter,M,,Shelter,53.TTGTATCAGG.TGGCCTCTGT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842361,India," 8,947,222 ","3,811,461","45,924",1.2,1,"3,753,627",< 0.02,54,,missing,,,,54.CACAGCGGTC.CAATAGGAAT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842360,India," 7,578,428 ","2,804,870","3,997",0.14,0,"2,754,385",< 0.02,55,I14 (A1/A2/B1/B2/B3/B4/B5),Shelter,M,,Shelter,55.CCACGCTGAA.CTGAGGAATA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842359,South Africa," 8,167,373 ","3,071,890","60,033",1.95,2,"2,996,049",0.02 - 0.1,56,SASSDOG1 (A1/B1),Urban,M (n),Dachsund,Unknown,56.GTTCGGAGTT.TCAGAAGGCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842358,South Africa," 8,461,049 ","2,992,610","1,178",0.04,0,"2,990,120",< 0.02,57,SACRHOND1 (A1/B1),Suburban,M,Bull Terrier,Unknown,57.ATAGCGGAAT.TACTCTGCGC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842357,South Africa," 6,407,963 ","1,781,481","3,384",0.19,0,"1,776,617",< 0.02,58,SACRHOND2 (A1/B1),Suburban,F (s),Dachsund,Unknown,58.GCAATATTCA.AATTGGCGCC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842356,South Africa," 7,102,775 ","2,079,844","763,508",36.71,37,"1,146,968",0.1 - 0.5,59,SAADFHOND2 B1,Farm,M,Jack Russel Terrier,Unknown,59.CTAGATTGCG.CGCCATATCT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842355,South Africa," 8,206,765 ","4,972,288","74,990",1.51,2,"4,877,735",0.02 - 0.1,6,SASFHOND1(A1/B1),Urban,M,Labrador,Unknown,6.TCCGTTATGT.TACACTACAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842354,South Africa," 7,117,641 ","2,873,009","6,065",0.21,0,"2,863,785",< 0.02,60,SAJHHOND2 (A1),Urban,F (s),Jack Russel mixed,Unknown,60.CGATGCGGTT.ACCAAGCAGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842353,South Africa," 5,690,692 ","2,376,303",323,0.01,0,"2,374,675",< 0.02,61,SALPHOND5 (A1/B1),Urban,M,Stafordshire Terrier,Unknown,61.TCCGGACTAG.ATTGTTCGTC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842351,Laos," 8,740,207 ","2,379,472","19,742",0.83,1,"2,347,623",< 0.02,62,LA20 (A1/A2/A3/B1/B2/B3),Laos Dog,,,Unknown,62.GTGACGGAGC.TGGACCGCCA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842350,Laos," 7,210,054 ","1,766,430","2,996",0.17,0,"1,758,904",< 0.02,63,LA27 (A1/A2/A3),Laos Dog,,,Unknown,63.AATTCCATCT.GTAACTGAAG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842349,Laos," 27,481,177 ","5,623,502","5,460",0.1,0,"5,605,656",< 0.02,64,,Laos Dog,,,,64.TTAACGGTGT.ACGGTCAGGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842348,Laos," 8,309,060 ","2,542,897","1,283",0.05,0,"2,538,544",< 0.02,65,LA19 (A1/A2/B1/B2/B3),Laos Dog,,,Unknown,65.ACTTGTTATC.TCTAGGCGCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842347,Laos," 7,572,053 ","1,513,823","14,381",0.95,1,"1,478,943",< 0.02,66,L28 (A1/A2/A3/B1/B2),Laos Dog,,,Unknown,66.CGTGTACCAG.AACTTATCCT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842346,Laos," 2,539,735 ","919,035","48,598",5.29,5,"857,804",0.02 - 0.1,67,L17 (A1/A2/A3/B1/B2),Laos Dog,,,Unknown,67.TTAACCTTCG.TGTCTGGCCT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842345,Laos," 17,074,210 ","7,107,401","375,332",5.28,5,"6,634,792",0.02 - 0.1,68,LA7 (A1/A2/A3/B1/B2),Laos Dog,,,Unknown,68.CATATGCGAT.CCGTTCAAGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842344,Laos," 45,260,385 ","19,068,377","9,175",0.05,0,"18,891,985",< 0.02,69,L18 (A1/A2/B1/B2),Laos Dog,,,Unknown,69.AGCCTATGAT.GTAGGTGGTG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842343,South Africa," 16,028,200 ","7,796,799","5,801,579",74.41,74,"824,691",> 0.5,7,SAJBHHOND1 (A1/B1),Urban,M (n),Yorkshire Terrier,Unknown,7.GGTCTATTAA.CGTGTCGTGG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842342,Laos," 7,946,772 ","1,472,629","118,444",8.04,8,"1,325,702",0.02 - 0.1,70,L4 (A1/A2/B1/B2),Laos Dog,,,Unknown,70.TATGACAATC.ATACAAGCAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842340,Laos," 7,054,962 ","1,809,397","1,999",0.11,0,"1,793,064",< 0.02,71,L12 (A1/A2/A3),Laos Dog,,,Unknown,71.ATGTTGTTGG.TCATAGATTG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842339,Laos," 7,519,832 ","2,788,731","2,087",0.07,0,"2,772,091",< 0.02,72,,Laos Dog,,,,72.GCACCACCAA.ATCAGTACCA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842338,Laos," 24,307,016 ","6,774,986","4,422",0.07,0,"6,750,735",< 0.02,73,L5 (A1/A2/B1/B2/B3),Laos Dog,,,Unknown,73.AGGCGTTCGC.GTTGGATGAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842337,Laos," 7,553,729 ","2,261,972","4,202",0.19,0,"2,216,194",< 0.02,74,L25 (A1/A2/A3/B1/B2/B3),Laos Dog,,,Unknown,74.CCTCCGGTTG.TGGTGTTATG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842336,Laos," 8,620,255 ","2,072,882","246,922",11.91,12,"1,759,726",0.1 - 0.5,75,L9 (A1/A2/B1/B2),Laos Dog,,,Unknown,75.GTCCACCGCT.GCTAATAGGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842335,Laos," 6,793,961 ","2,192,168","3,540",0.16,0,"2,186,095",< 0.02,76,L1 (A1/A2/A3/B1/B2),Laos Dog,,,Unknown,76.ATTGTTCGTC.AATCTAGAGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842334,Laos," 6,593,563 ","2,083,155","5,916",0.28,0,"2,074,355",< 0.02,77,L6 (A1/A2),Laos Dog,,,Unknown,77.GGACCAGTGG.TAGGCTCGCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842333,India," 7,289,629 ","3,535,066","2,443,140",69.11,69,"550,301",> 0.5,78,IPerm (A/B),Shelter,,,Shelter,78.CCTTCTAACA.AGAGCTTATC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842332,South Africa," 6,846,407 ","3,413,709","8,361",0.24,0,"3,402,418",< 0.02,79,SASFHOND2 (A1/B1),Urban,M,Yorkshire Terrier,Unknown,79.CTCGAATATA.TCGACATCTC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842331,US," 5,673,173 ","2,452,575",735,0.03,0,"2,450,786",< 0.02,8,Dany P1 (A/B),Diet_experiment,,Beagle,Unknown,8.CAGCAATCGT.ATACATCACA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842329,South Africa," 7,726,133 ","4,823,636","2,036,934",42.23,42,"2,330,516",0.1 - 0.5,80,,Laos Dog,,,,80.GATCGTCGCG.ACATATCCAG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842328,Laos," 7,788,842 ","3,585,801","38,416",1.07,1,"3,524,104",< 0.02,81,L26 (A1/A2/A3/A4/B1/B2/B3/B4),Laos Dog,,,Unknown,81.TATCCGAGGC.CTTATTGGCC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842327,Laos," 7,820,086 ","2,724,297","59,105",2.17,2,"2,638,994",0.02 - 0.1,82,LA24 (A1/A2/A3),Laos Dog,,,Unknown,82.CGCTGTCTCA.GGTGAGTAAT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842326,Laos," 8,455,490 ","2,586,339","86,040",3.33,3,"2,464,541",0.02 - 0.1,83,,Laos Dog,,,,83.AATGCGAACA.TCCGCCAATT.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842325,Laos," 7,612,279 ","3,090,514","7,465",0.24,0,"3,069,782",< 0.02,84,L10 (A1/A2/A3/A4/B1/B2/B3,Laos Dog,,,Unknown,84.AATTCTTGGA.AAGTTGACAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842324,Laos," 37,498,292 ","17,790,657","6,565",0.04,0,"17,746,070",< 0.02,85,L11 (A1/A2/A3/B1/B2),Laos Dog,,,Unknown,85.TTCCTACAGC.AGAATTCGCC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842323,South Africa," 8,641,162 ","5,281,837","22,078",0.42,0,"5,251,949",< 0.02,86,SALPHOND1 A1,Urban,F (s),Schnauzer,Unknown,86.ATCCAGGTAT.GCTGACGTTG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842322,South Africa," 4,883,510 ","2,404,492","77,843",3.24,3,"2,307,257",0.02 - 0.1,87,SAADFHOND1 B1,Farm,F (s),Jack Russel Terrier,Unknown,87.ACGGTCCAAC.TGATGTAAGA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842321,India," 6,515,264 ","3,661,607","110,565",3.02,3,"3,526,910",0.02 - 0.1,88,,missing,,,,88.GTAACTTGGT.AGGTATGGCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842320,South Africa," 6,857,466 ","3,450,615","6,557",0.19,0,"3,441,724",< 0.02,89,SAJHHOND1 (A1),Urban,F (s),Belgian Shephard,Unknown,89.AGCGCCACAC.AAGACATTAG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842423,US," 6,914,497 ","3,914,291","772,058",19.72,20,"2,982,493",0.1 - 0.5,9,Jacky P1 (A/B),Diet_experiment,,Beagle,Unknown,9.TTCTGTAGAA.TATTGCGCTC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842422,South Africa," 7,391,966 ","3,914,291","772,058",19.72408285,20," 2,982,493 ",0.1 - 0.5,90,SAADFHOND3 (A1/B1),Farm,M,Jack Russel Terrier,Unknown,90.TGCTACTGCC.CCTCCGGTTG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842421,South Africa," 8,268,884 ","3,496,676","1,325,964",37.92069954,38,"1,873,599",0.1 - 0.5,91,,missing,,,,91.CAACACCGCA.TGCTACTGCC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842420,South Africa," 7,290,184 ","3,247,266","1,451",0.04,0,"3,244,134",< 0.02,92,SAJHHOND4 B1,Urban,F (s),Border Collie,Unknown,92.CACCTTAATC.TCTATCCTAA.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842419,South Africa," 14,845,515 ","7,431,916","5,960,815",80.21,80,"352,049",> 0.5,93,SALPHOND6 (A1/B1),Suburban,F (s),Labrador,Unknown,93.TTGAATGTTG.CTAGATTGCG.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842418,South Africa," 8,201,904 ","4,471,950","39,044",0.87,1,"4,423,807",< 0.02,94,SALPHOND2 (A1/B1),Urban,F (s),Labrador,Unknown,94.CCGGTAACAC.AGTACAACTC.L002.R1.001.kneaddata.paired.1.fastq
+SRR14842417,Laos," 9,106,664 ","1,166,897",317,0.03,0,"1,165,323",< 0.02,99,,missing,,,,99.AGCTGGAATG.CGCATTCCGT.L002.R1.001.kneaddata.paired.1.fastq

@@ -1,0 +1,30 @@
+#mpa_vJun23_CHOCOPhlAnSGB_202403
+#/nesi/nobackup/uoo02328/meriam/humann3/bin/metaphlan /nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/eager/metagenomic_complexity_filter/LB_blank_2.unmapped.fastq.gz_lowcomplexityremoved.fq.gz --input_type fastq --bowtie2out reports_jun23_database/LB_blank_2_jun23_nreads.bt2.out --nproc 4 --bowtie2db metaphlan_databases/metaphlan_jun23 --read_min_len 30 -t rel_ab_w_read_stats --index mpa_vJun23_CHOCOPhlAnSGB_202403 --offline -t rel_ab_w_read_stats
+#881511 reads processed
+#Average read length 44.78458578508947
+#SampleID	Metaphlan_Analysis
+#estimated_reads_mapped_to_known_clades:3458
+#clade_name	clade_taxid	relative_abundance	coverage	estimated_number_of_reads_from_the_clade
+k__Bacteria	2	100.0	0.00087	3458
+k__Bacteria|p__Actinobacteria	2|201174	53.96172	0.00047	1154
+k__Bacteria|p__Proteobacteria	2|1224	46.03828	0.0004	2304
+k__Bacteria|p__Actinobacteria|c__Actinomycetia	2|201174|1760	53.96172	0.00047	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria	2|1224|28211	46.03828	0.0004	2304
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Propionibacteriales	2|201174|1760|85009	53.96172	0.00047	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales	2|1224|28211|356	46.03828	0.0004	2304
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Propionibacteriales|f__Propionibacteriaceae	2|201174|1760|85009|31957	53.96172	0.00047	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Methylobacteriaceae	2|1224|28211|356|119045	29.74427	0.00026	1484
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phreatobacteraceae	2|1224|28211|356|2843305	8.50796	7e-05	362
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phyllobacteriaceae	2|1224|28211|356|69277	7.78605	7e-05	458
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Propionibacteriales|f__Propionibacteriaceae|g__Cutibacterium	2|201174|1760|85009|31957|1912216	53.96172	0.00047	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Methylobacteriaceae|g__Methylorubrum	2|1224|28211|356|119045|2282523	29.74427	0.00026	1484
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phreatobacteraceae|g__Phreatobacter	2|1224|28211|356|2843305|1632780	8.50796	7e-05	362
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phyllobacteriaceae|g__Mesorhizobium	2|1224|28211|356|69277|68287	7.78605	7e-05	458
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Propionibacteriales|f__Propionibacteriaceae|g__Cutibacterium|s__Cutibacterium_acnes	2|201174|1760|85009|31957|1912216|1747	53.96172	0.00047	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Methylobacteriaceae|g__Methylorubrum|s__Methylorubrum_extorquens	2|1224|28211|356|119045|2282523|408	29.74427	0.00026	1484
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phreatobacteraceae|g__Phreatobacter|s__Phreatobacter_oligotrophus	2|1224|28211|356|2843305|1632780|1122261	8.50796	7e-05	362
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phyllobacteriaceae|g__Mesorhizobium|s__Mesorhizobium_amorphae	2|1224|28211|356|69277|68287|71433	7.78605	7e-05	458
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Propionibacteriales|f__Propionibacteriaceae|g__Cutibacterium|s__Cutibacterium_acnes|t__SGB16955	2|201174|1760|85009|31957|1912216|1747|	53.96172	0.00047	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Methylobacteriaceae|g__Methylorubrum|s__Methylorubrum_extorquens|t__SGB11392	2|1224|28211|356|119045|2282523|408|	29.74427	0.00026	1484
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phreatobacteraceae|g__Phreatobacter|s__Phreatobacter_oligotrophus|t__SGB24414	2|1224|28211|356|2843305|1632780|1122261|	8.50796	7e-05	362
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Phyllobacteriaceae|g__Mesorhizobium|s__Mesorhizobium_amorphae|t__SGB32228	2|1224|28211|356|69277|68287|71433|	7.78605	7e-05	458

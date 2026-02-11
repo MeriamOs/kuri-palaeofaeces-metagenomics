@@ -1,0 +1,45 @@
+#variables for trimming and mapping
+#name of the reference file
+reffile=GCA_900496995.4.fasta 
+#kiwi_haast.fasta
+#genome.fa
+#Canis_familiaris_genome_GCF_014441545.1.fna
+#multiple_species.fasta
+#Canis_lupus_familiaris_mtDNA_NC_002008.fasta
+#directory with the reference file
+refdir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/references/
+#/nesi/project/uoo02328/references/domesticates_mtDNA/
+#/nesi/project/uoo02328/catherine/references/
+#/nesi/project/uoo02328/references/domesticates_mtDNA/
+#directory with the raw fastq 
+datadir=/nesi/project/uoo02328/meriam/coprolite_data/OG8842/
+#suffix pattern of the first fastq file
+fq1=_R1_001.fastq.gz
+#suffix pattern of the second fastq file  
+fq2=_R2_001.fastq.gz
+#fastq files zipped? yes or no
+zipped_fastqs=yes
+#list of samples (separated by spaces, with no quotes around them)
+samplist=MS11674 MS11677 MS11669 MS11670 MS11673 MS11675 MS11676 MS11678 MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775
+
+
+# additional options
+# trimmed data main folder
+trim_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/eager/adapterremoval/output/
+
+# target data file
+target_data=_R1_001.fastq_L0.pe.combined.fq.gz 
+# mapping folder 
+map_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/haast_eagle_mtDNA/
+# bwa-specific option for seed length (-l)
+seedlength=1024
+# bwa-specific option for error rate (-n)
+error_rate=0.03
+# bwa-specific option for gap opens (-o)
+gapopens=2
+# threads for bwa (-t) and samtools (-@)
+num_threads=8
+# if following option yes, then will run mapDamage on final bam file
+mapdamage=no
+# use DeDup for deduplication
+dedup=no

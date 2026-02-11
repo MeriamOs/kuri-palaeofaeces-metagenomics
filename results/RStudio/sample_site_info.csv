@@ -1,0 +1,103 @@
+Sample,sample,Site,size,Sex,Relatedness,Island,Period,Period2
+MS11669,MS11669,Whenua_Hou_post,over70,female,no,South_Island,post-contact,post-contact
+MS11670,MS11670,Whenua_Hou_post,over70,male,no,South_Island,post-contact,post-contact
+MS11673,MS11673,Whenua_Hou_post,over70,female,no,South_Island,post-contact,post-contact
+MS11674,MS11674,Whenua_Hou_pre,over70,female,GRP1,South_Island,pre-contact,Early
+MS11675,MS11675,Whenua_Hou_pre,over70,male,no,South_Island,pre-contact,Early
+MS11676,MS11676,Whenua_Hou_pre,over70,female,GRP1,South_Island,pre-contact,Early
+MS11677,MS11677,Whenua_Hou_pre,over70,female,no,South_Island,pre-contact,Early
+MS11678,MS11678,Whenua_Hou_pre,over70,female,GRP1,South_Island,pre-contact,Early
+MS11679,MS11679,Long_Bay,over70,male,GRP2,North_Island,pre-contact,Early-Mid
+MS11683,MS11683,Long_Bay,over70,male,GRP2,North_Island,pre-contact,Early-Mid
+MS11684,MS11684,Long_Bay,over70,male,GRP3,North_Island,pre-contact,Early-Mid
+MS11686,MS11686,Long_Bay,over70,female,GRP3,North_Island,pre-contact,Early-Mid
+MS11770,MS11770,Kahukura,over70,male,no,South_Island,pre-contact,Mid
+MS11771,MS11771,Kahukura,over70,male,no,South_Island,pre-contact,Mid
+MS11774,MS11774,Kahukura,over70,male,no,South_Island,pre-contact,Mid
+MS11775,MS11775,Kahukura,over70,male,no,South_Island,pre-contact,Mid
+MS11669_under50bp,MS11669,Whenua Hou historic,under50,female,no,South Island,post-contact,historic
+MS11670_under50bp,MS11670,Whenua Hou historic,under50,male,no,South Island,post-contact,historic
+MS11673_under50bp,MS11673,Whenua Hou historic,under50,female,no,South Island,post-contact,historic
+MS11674_under50bp,MS11674,Whenua Hou pre-contact,under50,female,GRP1,South Island,pre-contact,settlement
+MS11675_under50bp,MS11675,Whenua Hou pre-contact,under50,male,no,South Island,pre-contact,settlement
+MS11676_under50bp,MS11676,Whenua Hou pre-contact,under50,female,GRP1,South Island,pre-contact,settlement
+MS11677_under50bp,MS11677,Whenua Hou pre-contact,under50,female,no,South Island,pre-contact,settlement
+MS11678_under50bp,MS11678,Whenua Hou pre-contact,under50,female,GRP1,South Island,pre-contact,settlement
+MS11679_under50bp,MS11679,Long Bay,under50,male,GRP2,North Island,pre-contact,post-Moa
+MS11683_under50bp,MS11683,Long Bay,under50,male,GRP2,North Island,pre-contact,post-Moa
+MS11684_under50bp,MS11684,Long Bay,under50,male,GRP3,North Island,pre-contact,post-Moa
+MS11686_under50bp,MS11686,Long Bay,under50,female,GRP3,North Island,pre-contact,post-Moa
+MS11770_under50bp,MS11770,Kahukura,under50,male,no,South Island,pre-contact,post-Moa
+MS11771_under50bp,MS11771,Kahukura,under50,male,no,South Island,pre-contact,post-Moa
+MS11774_under50bp,MS11774,Kahukura,under50,male,no,South Island,pre-contact,post-Moa
+MS11775_under50bp,MS11775,Kahukura,under50,male,no,South Island,pre-contact,post-Moa
+MS11669_over50bp,MS11669,Whenua Hou historic,over50,female,no,South Island,post-contact,historic
+MS11670_over50bp,MS11670,Whenua Hou historic,over50,male,no,South Island,post-contact,historic
+MS11673_over50bp,MS11673,Whenua Hou historic,over50,female,no,South Island,post-contact,historic
+MS11674_over50bp,MS11674,Whenua Hou pre-contact,over50,female,GRP1,South Island,pre-contact,settlement
+MS11675_over50bp,MS11675,Whenua Hou pre-contact,over50,male,no,South Island,pre-contact,settlement
+MS11676_over50bp,MS11676,Whenua Hou pre-contact,over50,female,GRP1,South Island,pre-contact,settlement
+MS11677_over50bp,MS11677,Whenua Hou pre-contact,over50,female,no,South Island,pre-contact,settlement
+MS11678_over50bp,MS11678,Whenua Hou pre-contact,over50,female,GRP1,South Island,pre-contact,settlement
+MS11679_over50bp,MS11679,Long Bay,over50,male,GRP2,North Island,pre-contact,post-Moa
+MS11683_over50bp,MS11683,Long Bay,over50,male,GRP2,North Island,pre-contact,post-Moa
+MS11684_over50bp,MS11684,Long Bay,over50,male,GRP3,North Island,pre-contact,post-Moa
+MS11686_over50bp,MS11686,Long Bay,over50,female,GRP3,North Island,pre-contact,post-Moa
+MS11770_over50bp,MS11770,Kahukura,over50,male,no,South Island,pre-contact,post-Moa
+MS11771_over50bp,MS11771,Kahukura,over50,male,no,South Island,pre-contact,post-Moa
+MS11774_over50bp,MS11774,Kahukura,over50,male,no,South Island,pre-contact,post-Moa
+MS11775_over50bp,MS11775,Kahukura,over50,male,no,South Island,pre-contact,post-Moa
+Blank1_WH,Blank,blank,all,,,,,
+Blank2_WH,Blank,blank,all,,,,,
+KH_blank_1,Blank,blank,all,,,,,
+KH_blank_2,Blank,blank,all,,,,,
+LB_blank_1,Blank,blank,all,,,,,
+LB_blank_2,Blank,blank,all,,,,,
+MS11102,Arch_bone,arch_bone,all,,,,,
+MS11103,Arch_bone,arch_bone,all,,,,,
+MS11107,Arch_bone,arch_bone,all,,,,,
+MS11108,Arch_bone,arch_bone,all,,,,,
+MS10790,Arch_bone,arch_bone,all,,,,,
+MS10902,Arch_bone,arch_bone,all,,,,,
+MS10903,Arch_bone,arch_bone,all,,,,,
+MS10904,Arch_bone,arch_bone,all,,,,,
+SRR14842426,modern_Laos,modern_dog,all,,,,,
+SRR14842396,modern_Laos,modern_dog,all,,,,,
+SRR14842338,modern_Laos,modern_dog,all,,,,,
+SRR14842341,modern_Laos,modern_dog,all,,,,,
+SRR14842349,modern_Laos,modern_dog,all,,,,,
+SRR14842328,modern_Laos,modern_dog,all,,,,,
+SRR14842385,modern_Laos,modern_dog,all,,,,,
+SRR14842325,modern_Laos,modern_dog,all,,,,,
+SRR14842352,modern_Laos,modern_dog,all,,,,,
+SRR14842339,modern_Laos,modern_dog,all,,,,,
+SRR14842364,modern_India,modern_dog,all,,,,,
+SRR14842361,modern_India,modern_dog,all,,,,,
+SRR14842376,modern_India,modern_dog,all,,,,,
+SRR14842368,modern_India,modern_dog,all,,,,,
+SRR14842401,modern_India,modern_dog,all,,,,,
+SRR14842383,modern_India,modern_dog,all,,,,,
+SRR14842403,modern_India,modern_dog,all,,,,,
+SRR14842399,modern_India,modern_dog,all,,,,,
+SRR14842389,modern_India,modern_dog,all,,,,,
+SRR14842362,modern_India,modern_dog,all,,,,,
+SRR2175792,modern_human,modern_human,all,,,,,
+SRR1944873,modern_human,modern_human,all,,,,,
+SRR1952058,modern_human,modern_human,all,,,,,
+SRR1952418,modern_human,modern_human,all,,,,,
+SRR1952501,modern_human,modern_human,all,,,,,
+SRR1952518,modern_human,modern_human,all,,,,,
+SRR1952531,modern_human,modern_human,all,,,,,
+SRR1952562,modern_human,modern_human,all,,,,,
+SRR2175723,modern_human,modern_human,all,,,,,
+SRR2175724,modern_human,modern_human,all,,,,,
+SRR2175749,modern_human,modern_human,all,,,,,
+SRR2175755,modern_human,modern_human,all,,,,,
+SRR2175756,modern_human,modern_human,all,,,,,
+SRR2175764,modern_human,modern_human,all,,,,,
+SRR2175766,modern_human,modern_human,all,,,,,
+SRR2175773,modern_human,modern_human,all,,,,,
+SRR2175774,modern_human,modern_human,all,,,,,
+SRR2175647,modern_human,modern_human,all,,,,,
+SRR2175649,modern_human,modern_human,all,,,,,
+SRR2175658,modern_human,modern_human,all,,,,,

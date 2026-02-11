@@ -1,0 +1,8 @@
+#mpa_vJun23_CHOCOPhlAnSGB_202403
+#/nesi/nobackup/uoo02328/meriam/humann3/bin/metaphlan /nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/eager/metagenomic_complexity_filter/Blank2_WH.unmapped.fastq.gz_lowcomplexityremoved.fq.gz --input_type fastq --bowtie2out reports_jun23_database/Blank2_WH_jun23_nreads.bt2.out --nproc 4 --bowtie2db metaphlan_databases/metaphlan_jun23 --read_min_len 30 -t rel_ab_w_read_stats --index mpa_vJun23_CHOCOPhlAnSGB_202403 --offline -t rel_ab_w_read_stats
+#16861 reads processed
+#Average read length 43.91174900658324
+#SampleID	Metaphlan_Analysis
+#estimated_reads_mapped_to_known_clades:0
+#clade_name	clade_taxid	relative_abundance	coverage	estimated_number_of_reads_from_the_clade
+unclassified	-1	100.0	0	0

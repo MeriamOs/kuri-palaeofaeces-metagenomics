@@ -1,0 +1,44 @@
+#mpa_vJun23_CHOCOPhlAnSGB_202403
+#/home/vanme090/.conda/envs/mpa/bin/metaphlan /nesi/project/uoo02328/meriam/data/decontam_data/MS10904.collapsed.gz --input_type fastq --bowtie2out reports_jun23_database/MS10904_jun23_nreads.bt2.out --nproc 4 --bowtie2db metaphlan_databases/metaphlan_jun23 --read_min_len 30 -t rel_ab_w_read_stats --bt2_ps very-sensitive --index mpa_vJun23_CHOCOPhlAnSGB_202403 --offline -t rel_ab_w_read_stats
+#3503384 reads processed
+#Average read length 54.81595594430984
+#SampleID	Metaphlan_Analysis
+#estimated_reads_mapped_to_known_clades:14612
+#clade_name	clade_taxid	relative_abundance	coverage	estimated_number_of_reads_from_the_clade
+k__Bacteria	2	100.0	0.00363	14612
+k__Bacteria|p__Proteobacteria	2|1224	56.46774	0.00205	5992
+k__Bacteria|p__Firmicutes	2|1239	24.6936	0.0009	4292
+k__Bacteria|p__Actinobacteria	2|201174	18.83866	0.00068	4328
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria	2|1224|28211	56.46774	0.00205	5992
+k__Bacteria|p__Firmicutes|c__Bacilli	2|1239|91061	24.6936	0.0009	4292
+k__Bacteria|p__Actinobacteria|c__Actinomycetia	2|201174|1760	18.83866	0.00068	4328
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales	2|1224|28211|356	56.46774	0.00205	5992
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales	2|1239|91061|1385	24.6936	0.0009	4292
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales	2|201174|1760|85012	18.83866	0.00068	4328
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Hyphomicrobiaceae	2|1224|28211|356|45401	44.36377	0.00161	4292
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillaceae	2|1239|91061|1385|186817	24.6936	0.0009	4292
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae	2|201174|1760|85012|2004	18.83866	0.00068	4328
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Parvibaculaceae	2|1224|28211|356|2813035	9.15497	0.00033	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Nitrobacteraceae	2|1224|28211|356|41294	1.4796	5e-05	210
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Xanthobacteraceae	2|1224|28211|356|335928	1.46941	5e-05	336
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Hyphomicrobiaceae|g__GGB92440	2|1224|28211|356|45401|	44.06713	0.0016	4225
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillaceae|g__Sutcliffiella	2|1239|91061|1385|186817|2837511	24.6936	0.0009	4292
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium	2|201174|1760|85012|2004|2000	18.83866	0.00068	4328
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Parvibaculaceae|g__GGB7499	2|1224|28211|356|2813035|	9.15497	0.00033	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Nitrobacteraceae|g__Afipia	2|1224|28211|356|41294|1033	1.4796	5e-05	210
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Xanthobacteraceae|g__Starkeya	2|1224|28211|356|335928|152053	1.46941	5e-05	336
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Hyphomicrobiaceae|g__Hyphomicrobium	2|1224|28211|356|45401|81	0.29663	1e-05	67
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Hyphomicrobiaceae|g__GGB92440|s__GGB92440_SGB133106	2|1224|28211|356|45401||	44.06713	0.0016	4225
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillaceae|g__Sutcliffiella|s__Sutcliffiella_halmapala	2|1239|91061|1385|186817|2837511|79882	24.6936	0.0009	4292
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_violaceochromogenes	2|201174|1760|85012|2004|2000|46188	18.83866	0.00068	4328
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Parvibaculaceae|g__GGB7499|s__GGB7499_SGB138240	2|1224|28211|356|2813035||	9.15497	0.00033	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Nitrobacteraceae|g__Afipia|s__Afipia_felis	2|1224|28211|356|41294|1033|1035	1.4796	5e-05	210
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Xanthobacteraceae|g__Starkeya|s__Starkeya_sp_ORNL1	2|1224|28211|356|335928|152053|2709380	1.46941	5e-05	336
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Hyphomicrobiaceae|g__Hyphomicrobium|s__Hyphomicrobium_sp_CS1BSMeth3	2|1224|28211|356|45401|81|1892844	0.29663	1e-05	67
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Hyphomicrobiaceae|g__GGB92440|s__GGB92440_SGB133106|t__SGB133106	2|1224|28211|356|45401|||	44.06713	0.0016	4225
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillaceae|g__Sutcliffiella|s__Sutcliffiella_halmapala|t__SGB30156	2|1239|91061|1385|186817|2837511|79882|	24.6936	0.0009	4292
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_violaceochromogenes|t__SGB87301	2|201174|1760|85012|2004|2000|46188|	18.83866	0.00068	4328
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Parvibaculaceae|g__GGB7499|s__GGB7499_SGB138240|t__SGB138240	2|1224|28211|356|2813035|||	9.15497	0.00033	1154
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Nitrobacteraceae|g__Afipia|s__Afipia_felis|t__SGB11352	2|1224|28211|356|41294|1033|1035|	1.4796	5e-05	210
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Xanthobacteraceae|g__Starkeya|s__Starkeya_sp_ORNL1|t__SGB89754	2|1224|28211|356|335928|152053|2709380|	1.46941	5e-05	336
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Hyphomicrobiales|f__Hyphomicrobiaceae|g__Hyphomicrobium|s__Hyphomicrobium_sp_CS1BSMeth3|t__SGB31811	2|1224|28211|356|45401|81|1892844|	0.29663	1e-05	67

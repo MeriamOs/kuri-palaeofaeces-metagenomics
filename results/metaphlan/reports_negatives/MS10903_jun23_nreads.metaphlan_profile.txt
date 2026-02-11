@@ -1,0 +1,49 @@
+#mpa_vJun23_CHOCOPhlAnSGB_202403
+#/home/vanme090/.conda/envs/mpa/bin/metaphlan /nesi/project/uoo02328/meriam/data/decontam_data/MS10903.collapsed.gz --input_type fastq --bowtie2out reports_jun23_database/MS10903_jun23_nreads.bt2.out --nproc 4 --bowtie2db metaphlan_databases/metaphlan_jun23 --read_min_len 30 -t rel_ab_w_read_stats --bt2_ps very-sensitive --index mpa_vJun23_CHOCOPhlAnSGB_202403 --offline -t rel_ab_w_read_stats
+#3589744 reads processed
+#Average read length 47.819404670639464
+#SampleID	Metaphlan_Analysis
+#estimated_reads_mapped_to_known_clades:13862
+#clade_name	clade_taxid	relative_abundance	coverage	estimated_number_of_reads_from_the_clade
+k__Bacteria	2	90.61355	0.00236	13508
+k__Archaea	2157	9.38645	0.00024	354
+k__Bacteria|p__Actinobacteria	2|201174	69.40497	0.0018	11656
+k__Bacteria|p__Nitrospirae	2|40117	17.20992	0.00045	1432
+k__Archaea|p__Thaumarchaeota	2157|651137	9.38645	0.00024	354
+k__Bacteria|p__Proteobacteria	2|1224	3.99866	0.0001	420
+k__Bacteria|p__Actinobacteria|c__Actinomycetia	2|201174|1760	69.40497	0.0018	11656
+k__Bacteria|p__Nitrospirae|c__CFGB32184	2|40117|	11.01168	0.00029	1012
+k__Archaea|p__Thaumarchaeota|c__CFGB167	2157|651137|	9.38645	0.00024	354
+k__Bacteria|p__Nitrospirae|c__Nitrospira	2|40117|203693	6.19824	0.00016	420
+k__Bacteria|p__Proteobacteria|c__CFGB33292	2|1224|	3.99866	0.0001	420
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales	2|201174|1760|85012	69.40497	0.0018	11656
+k__Bacteria|p__Nitrospirae|c__CFGB32184|o__OFGB32184	2|40117||	11.01168	0.00029	1012
+k__Archaea|p__Thaumarchaeota|c__CFGB167|o__OFGB167	2157|651137||	9.38645	0.00024	354
+k__Bacteria|p__Nitrospirae|c__Nitrospira|o__Nitrospirales	2|40117|203693|189778	6.19824	0.00016	420
+k__Bacteria|p__Proteobacteria|c__CFGB33292|o__OFGB33292	2|1224||	3.99866	0.0001	420
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae	2|201174|1760|85012|2004	69.40497	0.0018	11656
+k__Bacteria|p__Nitrospirae|c__CFGB32184|o__OFGB32184|f__FGB32184	2|40117|||	11.01168	0.00029	1012
+k__Archaea|p__Thaumarchaeota|c__CFGB167|o__OFGB167|f__FGB167	2157|651137|||	9.38645	0.00024	354
+k__Bacteria|p__Nitrospirae|c__Nitrospira|o__Nitrospirales|f__Nitrospiraceae	2|40117|203693|189778|189779	6.19824	0.00016	420
+k__Bacteria|p__Proteobacteria|c__CFGB33292|o__OFGB33292|f__FGB33292	2|1224|||	3.99866	0.0001	420
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium	2|201174|1760|85012|2004|2000	69.40497	0.0018	11656
+k__Bacteria|p__Nitrospirae|c__CFGB32184|o__OFGB32184|f__FGB32184|g__GGB32910	2|40117||||	11.01168	0.00029	1012
+k__Archaea|p__Thaumarchaeota|c__CFGB167|o__OFGB167|f__FGB167|g__GGB16996	2157|651137||||	9.38645	0.00024	354
+k__Bacteria|p__Nitrospirae|c__Nitrospira|o__Nitrospirales|f__Nitrospiraceae|g__GGB32963	2|40117|203693|189778|189779|	6.19824	0.00016	420
+k__Bacteria|p__Proteobacteria|c__CFGB33292|o__OFGB33292|f__FGB33292|g__GGB91291	2|1224||||	3.99866	0.0001	420
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_violaceochromogenes	2|201174|1760|85012|2004|2000|46188	64.72805	0.00168	10637
+k__Bacteria|p__Nitrospirae|c__CFGB32184|o__OFGB32184|f__FGB32184|g__GGB32910|s__GGB32910_SGB54460	2|40117|||||	11.01168	0.00029	1012
+k__Archaea|p__Thaumarchaeota|c__CFGB167|o__OFGB167|f__FGB167|g__GGB16996|s__GGB16996_SGB25597	2157|651137|||||	9.38645	0.00024	354
+k__Bacteria|p__Nitrospirae|c__Nitrospira|o__Nitrospirales|f__Nitrospiraceae|g__GGB32963|s__GGB32963_SGB71265	2|40117|203693|189778|189779||	6.19824	0.00016	420
+k__Bacteria|p__Proteobacteria|c__CFGB33292|o__OFGB33292|f__FGB33292|g__GGB91291|s__GGB91291_SGB134920	2|1224|||||	3.99866	0.0001	420
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_pseudovulgare	2|201174|1760|85012|2004|2000|35765	3.19854	8e-05	684
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_saharense	2|201174|1760|85012|2004|2000|1706840	1.23209	3e-05	272
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_roseum	2|201174|1760|85012|2004|2000|2001	0.24628	1e-05	63
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_violaceochromogenes|t__SGB87301	2|201174|1760|85012|2004|2000|46188|	64.72805	0.00168	10637
+k__Bacteria|p__Nitrospirae|c__CFGB32184|o__OFGB32184|f__FGB32184|g__GGB32910|s__GGB32910_SGB54460|t__SGB54460	2|40117||||||	11.01168	0.00029	1012
+k__Archaea|p__Thaumarchaeota|c__CFGB167|o__OFGB167|f__FGB167|g__GGB16996|s__GGB16996_SGB25597|t__SGB25597	2157|651137||||||	9.38645	0.00024	354
+k__Bacteria|p__Nitrospirae|c__Nitrospira|o__Nitrospirales|f__Nitrospiraceae|g__GGB32963|s__GGB32963_SGB71265|t__SGB71265	2|40117|203693|189778|189779|||	6.19824	0.00016	420
+k__Bacteria|p__Proteobacteria|c__CFGB33292|o__OFGB33292|f__FGB33292|g__GGB91291|s__GGB91291_SGB134920|t__SGB134920	2|1224||||||	3.99866	0.0001	420
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_pseudovulgare|t__SGB87298	2|201174|1760|85012|2004|2000|35765|	3.19854	8e-05	684
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_saharense|t__SGB87302	2|201174|1760|85012|2004|2000|1706840|	1.23209	3e-05	272
+k__Bacteria|p__Actinobacteria|c__Actinomycetia|o__Streptosporangiales|f__Streptosporangiaceae|g__Streptosporangium|s__Streptosporangium_roseum|t__SGB16417	2|201174|1760|85012|2004|2000|2001|	0.24628	1e-05	63
