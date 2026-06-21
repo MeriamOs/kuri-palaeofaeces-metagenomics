@@ -129,7 +129,7 @@ export PYTHONNOUSERSITE=1
 ##################
 
 conda activate /nesi/nobackup/uoo02328/meriam/conda_environments/pydamage
-MARKER='diet_coi'
+MARKER='COI_region'
 
 for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 \
             MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775
@@ -146,13 +146,13 @@ conda deactivate
 
 conda activate /nesi/nobackup/uoo02328/meriam/conda_environments/pysamstats_env
 
-MARKER='diet_coi'
+MARKER='COI_region'
 
 for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 \
 			MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775
 	do
 	echo ${sample}
-	/nesi/nobackup/uoo02328/meriam/conda_environments/pysamstats_env/bin/python BAMPlotter_pydamage_10readsonly.py \
+	/nesi/nobackup/uoo02328/meriam/conda_environments/pysamstats_env/bin/python BAMPlotter_pydamage_COI.py \
 		-b ${sample}_maponly.bam \
     	-d pydamage_results/${sample}_${MARKER}_pydamage_results.csv \
 		-o BAMPlotter/${sample}_${MARKER}_BAMPlotter_pydamage_10+reads.pdf
