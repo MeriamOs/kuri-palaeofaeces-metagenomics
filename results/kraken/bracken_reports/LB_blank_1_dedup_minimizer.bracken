@@ -1,0 +1,45 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Burkholderia ubonensis	101571	S	205	1376	1581	0.07399
+Burkholderia contaminans	488447	S	87	987	1074	0.05026
+Burkholderia stagnalis	1503054	S	82	387	469	0.02195
+Burkholderia multivorans	87883	S	69	375	444	0.02078
+Burkholderia territorii	1503055	S	67	515	582	0.02724
+Burkholderia vietnamiensis	60552	S	46	2826	2872	0.13441
+Burkholderia cepacia	292	S	40	298	338	0.01582
+Burkholderia cenocepacia	95486	S	38	1575	1613	0.07549
+Burkholderia ambifaria	152480	S	38	485	523	0.02448
+Burkholderia pyrrocinia	60550	S	29	329	358	0.01675
+Burkholderia dolosa	152500	S	29	138	167	0.00782
+Burkholderia pseudomultivorans	1207504	S	29	159	188	0.00880
+Burkholderia latens	488446	S	21	91	112	0.00524
+Burkholderia stabilis	95485	S	17	245	262	0.01226
+Burkholderia anthina	179879	S	14	275	289	0.01352
+Burkholderia lata	482957	S	11	117	128	0.00599
+Burkholderia arboris	488730	S	10	59	69	0.00323
+Burkholderia diffusa	488732	S	10	74	84	0.00393
+Burkholderia pseudomallei	28450	S	56	632	688	0.03220
+Burkholderia mayonis	1385591	S	23	80	103	0.00482
+Burkholderia singularis	1503053	S	21	42	63	0.00295
+Burkholderia thailandensis	57975	S	17	74	91	0.00426
+Burkholderia sp. FERM BP-3421	1494466	S	30	93	123	0.00576
+Burkholderia gladioli	28095	S	20	56	76	0.00356
+Burkholderia glumae	337	S	10	37	47	0.00220
+Paraburkholderia aromaticivorans	2026199	S	632	2160	2792	0.13066
+Paraburkholderia fungorum	134537	S	61	307	368	0.01722
+Paraburkholderia phytofirmans	261302	S	48	76	124	0.00580
+Cupriavidus metallidurans	119219	S	12	136	148	0.00693
+Pandoraea pnomenusa	93220	S	20	764	784	0.03669
+Trinickia violacea	2571746	S	11	28	39	0.00183
+Acidovorax sp. KKS102	358220	S	30	210	240	0.01123
+Acidovorax sp. FHTAMBA	3140252	S	20	97	117	0.00548
+Massilia putida	1141883	S	18	38	56	0.00262
+Aquitalea denitrificans	519081	S	15	29	44	0.00206
+Aquitalea aquatilis	1537400	S	12	17	29	0.00136
+Methylorubrum extorquens	408	S	38	562	600	0.02808
+Methylobacterium sp. FF17	2984843	S	19	192	211	0.00987
+Mesorhizobium terrae	2725666	S	171	230	401	0.01877
+Mesorhizobium sp. Pch-S	2082387	S	132	93	225	0.01053
+Pseudomonas aeruginosa	287	S	62	1402	1464	0.06851
+Flavobacterium ammonificans	1751056	S	50	45	95	0.00445
+Leptospira sp. severe_002	2838237	S	24	77	101	0.00473
+Homo sapiens	9606	S	1023	144	1167	0.05461

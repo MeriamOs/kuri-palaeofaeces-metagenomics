@@ -1,0 +1,4 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Burkholderia ubonensis	101571	S	20	529	549	0.4427419355
+Paraburkholderia aromaticivorans	2026199	S	47	369	416	0.3354838710
+Burkholderia multivorans	87883	S	13	262	275	0.2217741935

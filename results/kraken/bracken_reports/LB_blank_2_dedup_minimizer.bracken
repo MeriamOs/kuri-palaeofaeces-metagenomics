@@ -1,0 +1,80 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Homo sapiens	9606	S	120522	1609	122131	0.72187
+Burkholderia ubonensis	101571	S	425	2787	3212	0.01899
+Burkholderia stagnalis	1503054	S	169	762	931	0.00550
+Burkholderia territorii	1503055	S	166	1271	1437	0.00849
+Burkholderia contaminans	488447	S	166	1822	1988	0.01175
+Burkholderia multivorans	87883	S	164	857	1021	0.00603
+Burkholderia vietnamiensis	60552	S	93	5872	5965	0.03526
+Burkholderia cepacia	292	S	86	632	718	0.00424
+Burkholderia pyrrocinia	60550	S	69	798	867	0.00512
+Burkholderia cenocepacia	95486	S	62	2644	2706	0.01599
+Burkholderia dolosa	152500	S	59	271	330	0.00195
+Burkholderia ambifaria	152480	S	52	686	738	0.00436
+Burkholderia latens	488446	S	50	211	261	0.00154
+Burkholderia pseudomultivorans	1207504	S	45	240	285	0.00168
+Burkholderia anthina	179879	S	40	778	818	0.00483
+Burkholderia stabilis	95485	S	32	463	495	0.00293
+Burkholderia arboris	488730	S	24	142	166	0.00098
+Burkholderia lata	482957	S	21	227	248	0.00147
+Burkholderia diffusa	488732	S	19	141	160	0.00095
+Burkholderia metallica	488729	S	17	118	135	0.00080
+Burkholderia pseudomallei	28450	S	120	1257	1377	0.00814
+Burkholderia mayonis	1385591	S	38	126	164	0.00097
+Burkholderia thailandensis	57975	S	32	152	184	0.00109
+Burkholderia singularis	1503053	S	20	37	57	0.00034
+Burkholderia oklahomensis	342113	S	15	61	76	0.00045
+Burkholderia sp. FERM BP-3421	1494466	S	55	130	185	0.00109
+Burkholderia sp. NRF60-BP8	1637853	S	22	239	261	0.00154
+Burkholderia sp. MSMB0856	1637869	S	19	196	215	0.00127
+Burkholderia sp. MS455	2811788	S	17	244	261	0.00154
+Burkholderia sp. LA-2-3-30-S1-D2	1637862	S	15	139	154	0.00091
+Burkholderia gladioli	28095	S	43	103	146	0.00086
+Burkholderia glumae	337	S	17	59	76	0.00045
+Paraburkholderia aromaticivorans	2026199	S	1377	4542	5919	0.03499
+Paraburkholderia fungorum	134537	S	136	667	803	0.00475
+Paraburkholderia phytofirmans	261302	S	92	134	226	0.00134
+Paraburkholderia sp. SOS3	1926494	S	14	16	30	0.00018
+Paraburkholderia tropica	92647	S	17	36	53	0.00031
+Paraburkholderia kirstenboschensis	1245436	S	16	17	33	0.00020
+Paraburkholderia pallida	2547399	S	15	21	36	0.00021
+Paraburkholderia phymatum	148447	S	12	13	25	0.00015
+Paraburkholderia acidicola	1912599	S	10	9	19	0.00011
+Paraburkholderia sabiae	273251	S	10	15	25	0.00015
+Paraburkholderia acidiphila	2571747	S	10	16	26	0.00015
+Paraburkholderia terricola	169427	S	10	18	28	0.00017
+Cupriavidus metallidurans	119219	S	33	298	331	0.00196
+Cupriavidus necator	106590	S	10	57	67	0.00040
+Polynucleobacter sp. JS-JIR-II-b4	1758390	S	17	47	64	0.00038
+Pandoraea pnomenusa	93220	S	41	1433	1474	0.00871
+Pandoraea vervacti	656178	S	17	23	40	0.00024
+Ralstonia pseudosolanacearum	1310165	S	38	346	384	0.00227
+Caballeronia sp. Lep1P3	2878150	S	11	48	59	0.00035
+Trinickia violacea	2571746	S	25	60	85	0.00050
+Acidovorax sp. KKS102	358220	S	72	421	493	0.00291
+Acidovorax sp. FHTAMBA	3140252	S	28	87	115	0.00068
+Acidovorax temperans	80878	S	38	395	433	0.00256
+Massilia putida	1141883	S	53	82	135	0.00080
+Aquitalea aquatilis	1537400	S	61	75	136	0.00080
+Aquitalea denitrificans	519081	S	28	46	74	0.00044
+Methylorubrum extorquens	408	S	79	1116	1195	0.00706
+Methylorubrum populi	223967	S	15	41	56	0.00033
+Methylobacterium sp. FF17	2984843	S	38	23	61	0.00036
+Methylobacterium fujisawaense	107400	S	17	456	473	0.00280
+Mesorhizobium terrae	2725666	S	428	370	798	0.00472
+Mesorhizobium sp. Pch-S	2082387	S	377	152	529	0.00313
+Bradyrhizobium betae	244734	S	15	195	210	0.00124
+Phreatobacter cathodiphilus	1868589	S	12	14	26	0.00015
+Novosphingobium sp. EMRT-2	2571749	S	16	156	172	0.00102
+Pseudomonas aeruginosa	287	S	103	2240	2343	0.01385
+Cutibacterium acnes	1747	S	1230	492	1722	0.01018
+Rubrobacter xylanophilus	49319	S	12	11	23	0.00014
+Staphylococcus capitis	29388	S	443	1626	2069	0.01223
+Staphylococcus epidermidis	1282	S	13	32	45	0.00027
+Clostridium perfringens	1502	S	15	35	50	0.00030
+Flavobacterium ammonificans	1751056	S	102	78	180	0.00106
+Flavobacterium ammoniigenes	1751095	S	11	8	19	0.00011
+Phocaeicola vulgatus	821	S	32	87	119	0.00070
+Aquirufa antheringensis	2516559	S	14	17	31	0.00018
+Leptospira sp. severe_002	2838237	S	49	66	115	0.00068
+Edaphobacter flagellatus	1933044	S	25	0	25	0.00015

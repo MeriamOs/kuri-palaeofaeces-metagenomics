@@ -1,0 +1,54 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Streptosporangium sp. NBC_01756	2975950	S	2939	15916	18855	0.19731
+Streptosporangium sp. 'caverna'	2202249	S	357	5887	6244	0.06534
+Streptosporangium sp. NBC_01469	2903898	S	140	4428	4568	0.04780
+Streptosporangium sp. NBC_01755	2975949	S	63	3473	3536	0.03700
+Streptosporangium sp. NBC_01495	2903899	S	62	1543	1605	0.01680
+Streptosporangium sp. NBC_01810	2975951	S	50	3011	3061	0.03203
+Streptosporangium roseum	2001	S	4208	24505	28713	0.30046
+Streptosporangium subroseum	106412	S	489	8202	8691	0.09095
+Nonomuraea sp. NBC_01738	2976003	S	171	666	837	0.00876
+Nonomuraea sp. NBC_00507	2976002	S	111	451	562	0.00588
+Nonomuraea glycinis	2047744	S	192	927	1119	0.01171
+Nonomuraea phyllanthi	2219224	S	119	535	654	0.00684
+Nonomuraea fuscirosea	1291556	S	100	425	525	0.00549
+Nonomuraea coxensis	404386	S	84	498	582	0.00609
+[Actinomadura] parvosata	1955412	S	55	284	339	0.00355
+Nonomuraea gerenzanensis	93944	S	53	274	327	0.00342
+Microbispora sp. NBC_01189	2903583	S	142	762	904	0.00946
+Microbispora sp. ZYX-F-249	3144104	S	85	406	491	0.00514
+Microbispora hainanensis	568844	S	77	391	468	0.00490
+Thermobispora bispora	2006	S	41	123	164	0.00172
+Spongiactinospora sp. TRM90649	3031114	S	18	101	119	0.00125
+Actinomadura citrea	46158	S	212	1092	1304	0.01365
+Actinomadura sp. WMMA1423	2591108	S	21	91	112	0.00117
+Actinomadura sp. NAK00032	2742128	S	16	83	99	0.00104
+Actinomadura graeca	2750812	S	25	97	122	0.00128
+Actinomadura verrucosospora	46165	S	21	104	125	0.00131
+Actinomadura luteofluorescens	46163	S	11	53	64	0.00067
+Thermomonospora amylolytica	1411117	S	25	160	185	0.00194
+Thermomonospora curvata	2020	S	13	62	75	0.00078
+Actinoallomurus sp. NBC_01490	2903557	S	29	84	113	0.00118
+Spirillospora sp. NBC_01491	2976007	S	22	123	145	0.00152
+Nocardiopsis gilva	280236	S	15	81	96	0.00100
+Yinghuangia sp. ASG 101	2896848	S	13	522	535	0.00560
+Dactylosporangium roseum	47989	S	156	581	737	0.00771
+Dactylosporangium sp. AC04546	2862460	S	17	50	67	0.00070
+Catellatospora sp. IY07-71	2728827	S	10	51	61	0.00064
+Oerskovia sp. KBS0722	1179673	S	12	141	153	0.00160
+Nocardia sp. NBC_00403	2975990	S	24	150	174	0.00182
+Saccharopolyspora erythraea	1836	S	11	78	89	0.00093
+Kutzneria albida	43357	S	13	82	95	0.00099
+Kribbella sp. NBC_01245	2903578	S	11	148	159	0.00166
+Stackebrandtia nassauensis	283811	S	10	15	25	0.00026
+Catenulispora acidiphila	304895	S	11	34	45	0.00047
+Staphylococcus hominis	1290	S	25	1845	1870	0.01957
+Lysobacter sp. HDW10	2714936	S	28	791	819	0.00857
+Stutzerimonas stutzeri	316	S	41	2295	2336	0.02444
+Saccharophagus degradans	86304	S	41	144	185	0.00194
+Mesorhizobium sp. Pch-S	2082387	S	12	88	100	0.00105
+Mesorhizobium terrae	2725666	S	14	202	216	0.00226
+Terricaulis silvestris	2686094	S	40	197	237	0.00248
+Methylotenera versatilis	1055487	S	18	161	179	0.00187
+Homo sapiens	9606	S	1358	1268	2626	0.02748
+Candidatus Nitrososphaera gargensis	497727	S	13	12	25	0.00026

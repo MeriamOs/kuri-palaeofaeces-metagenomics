@@ -1,0 +1,15 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Mesorhizobium terrae	2725666	S	150	279	429	0.2230889236
+Acidovorax sp. KKS102	358220	S	20	368	388	0.2017680707
+Staphylococcus hominis	1290	S	45	163	208	0.1081643266
+Flavobacterium sp. CECT 9288	2845819	S	47	92	139	0.0722828913
+Staphylococcus epidermidis	1282	S	28	92	120	0.0624024961
+Mesorhizobium sp. PAMC28654	2880934	S	40	73	113	0.0587623505
+Flavobacterium ammonificans	1751056	S	53	56	109	0.0566822673
+Curvibacter sp. AEP1-3	1844971	S	13	77	90	0.0468018721
+Dyella caseinilytica	1849581	S	10	70	80	0.0416016641
+Cutibacterium acnes	1747	S	39	37	76	0.0395215809
+Mesorhizobium sp. Pch-S	2082387	S	30	25	55	0.0286011440
+Flavobacterium sp. CHNK8	2871165	S	16	26	42	0.0218408736
+Gordonia polyisoprenivorans	84595	S	20	20	40	0.0208008320
+Staphylococcus pettenkoferi	170573	S	19	15	34	0.0176807072

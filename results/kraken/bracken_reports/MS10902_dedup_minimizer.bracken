@@ -1,0 +1,69 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Streptosporangium sp. NBC_01756	2975950	S	1694	6346	8040	0.11679
+Streptosporangium sp. 'caverna'	2202249	S	234	3362	3596	0.05224
+Streptosporangium sp. NBC_01810	2975951	S	82	3425	3507	0.05094
+Streptosporangium sp. NBC_01469	2903898	S	67	1478	1545	0.02244
+Streptosporangium sp. NBC_01495	2903899	S	54	939	993	0.01442
+Streptosporangium sp. NBC_01755	2975949	S	31	1184	1215	0.01765
+Streptosporangium roseum	2001	S	2573	10526	13099	0.19028
+Streptosporangium subroseum	106412	S	264	3869	4133	0.06004
+Nonomuraea sp. NBC_01738	2976003	S	107	283	390	0.00567
+Nonomuraea sp. NBC_00507	2976002	S	72	203	275	0.00399
+Nonomuraea glycinis	2047744	S	113	365	478	0.00694
+Nonomuraea phyllanthi	2219224	S	87	264	351	0.00510
+Nonomuraea coxensis	404386	S	57	228	285	0.00414
+Nonomuraea fuscirosea	1291556	S	42	124	166	0.00241
+[Actinomadura] parvosata	1955412	S	37	135	172	0.00250
+Nonomuraea gerenzanensis	93944	S	25	93	118	0.00171
+Microbispora sp. NBC_01189	2903583	S	64	240	304	0.00442
+Microbispora sp. ZYX-F-249	3144104	S	39	139	178	0.00259
+Microbispora hainanensis	568844	S	51	187	238	0.00346
+Thermobispora bispora	2006	S	31	54	85	0.00123
+Spongiactinospora sp. TRM90649	3031114	S	16	60	76	0.00110
+Actinomadura citrea	46158	S	2435	8267	10702	0.15546
+Actinomadura sp. WMMA1423	2591108	S	38	107	145	0.00211
+Actinomadura sp. NAK00032	2742128	S	18	59	77	0.00112
+Actinomadura luteofluorescens	46163	S	58	187	245	0.00356
+Actinomadura graeca	2750812	S	17	41	58	0.00084
+Actinomadura madurae	1993	S	12	31	43	0.00062
+Actinoallomurus sp. NBC_01490	2903557	S	21	38	59	0.00086
+Thermomonospora amylolytica	1411117	S	11	44	55	0.00080
+Spirillospora sp. NBC_01491	2976007	S	19	65	84	0.00122
+Streptomyces sp. NBC_01116	2903752	S	22	1700	1722	0.02501
+Pseudarthrobacter oxydans	1671	S	21	257	278	0.00404
+Dactylosporangium roseum	47989	S	83	236	319	0.00463
+Nocardia sp. NBC_01329	2903594	S	14	79	93	0.00135
+Stackebrandtia nassauensis	283811	S	332	313	645	0.00937
+Peribacillus simplex	1478	S	25	445	470	0.00683
+Peribacillus frigoritolerans	450367	S	18	264	282	0.00410
+Neobacillus sp. YX16	3047874	S	43	525	568	0.00825
+Fictibacillus arsenicus	255247	S	24	142	166	0.00241
+Gottfriedia acidiceleris	371036	S	14	153	167	0.00243
+Paenibacillus andongensis	2975482	S	65	139	204	0.00296
+Paenisporosarcina sp. FSL H8-0542	2921401	S	11	150	161	0.00234
+Massilia varians	457921	S	274	2595	2869	0.04168
+Massilia sp. H6	2970464	S	39	194	233	0.00338
+Massilia sp. WG5	1707785	S	20	196	216	0.00314
+Massilia sp. NP310	2861282	S	11	174	185	0.00269
+Pseudoduganella aquatica	2660641	S	12	83	95	0.00138
+Telluria beijingensis	3068633	S	11	82	93	0.00135
+Janthinobacterium sp. J1-1	3065910	S	28	324	352	0.00511
+Acidovorax temperans	80878	S	10	537	547	0.00795
+Methylotenera versatilis	1055487	S	47	55	102	0.00148
+Pseudomonas atacamensis	2565368	S	19	598	617	0.00896
+Stutzerimonas stutzeri	316	S	11	488	499	0.00725
+Bosea sp. ANAM02	2020412	S	16	102	118	0.00171
+Bosea beijingensis	3068632	S	18	117	135	0.00196
+Mesorhizobium sp. Pch-S	2082387	S	13	47	60	0.00087
+Mesorhizobium terrae	2725666	S	20	128	148	0.00215
+Shinella zoogloeoides	352475	S	11	376	387	0.00562
+Devosia ginsengisoli	400770	S	11	27	38	0.00055
+Terricaulis silvestris	2686094	S	31	56	87	0.00126
+Candidatus Viadribacter manganicus	1759059	S	25	33	58	0.00084
+Sphingobacterium sp. LZ7M1	2961941	S	73	428	501	0.00728
+Flavobacterium ammonificans	1751056	S	18	58	76	0.00110
+Flavobacterium ammoniigenes	1751095	S	14	45	59	0.00086
+Chitinophaga niabensis	536979	S	48	33	81	0.00118
+Aquirufa antheringensis	2516559	S	10	22	32	0.00046
+Sandaracinus amylolyticus	927083	S	13	25	38	0.00055
+Homo sapiens	9606	S	4369	1023	5392	0.07833

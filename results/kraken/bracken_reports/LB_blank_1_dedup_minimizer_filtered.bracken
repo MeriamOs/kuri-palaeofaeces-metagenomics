@@ -1,0 +1,44 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Burkholderia vietnamiensis	60552	S	46	2826	2872	0.1423050243
+Paraburkholderia aromaticivorans	2026199	S	632	2160	2792	0.1383410960
+Burkholderia cenocepacia	95486	S	38	1575	1613	0.0799227034
+Burkholderia ubonensis	101571	S	205	1376	1581	0.0783371321
+Pseudomonas aeruginosa	287	S	62	1402	1464	0.0725398870
+Burkholderia contaminans	488447	S	87	987	1074	0.0532157368
+Pandoraea pnomenusa	93220	S	20	764	784	0.0388464969
+Burkholderia pseudomallei	28450	S	56	632	688	0.0340897830
+Methylorubrum extorquens	408	S	38	562	600	0.0297294619
+Burkholderia territorii	1503055	S	67	515	582	0.0288375780
+Burkholderia ambifaria	152480	S	38	485	523	0.0259141810
+Burkholderia stagnalis	1503054	S	82	387	469	0.0232385294
+Burkholderia multivorans	87883	S	69	375	444	0.0219998018
+Mesorhizobium terrae	2725666	S	171	230	401	0.0198691904
+Paraburkholderia fungorum	134537	S	61	307	368	0.0182340700
+Burkholderia pyrrocinia	60550	S	29	329	358	0.0177385789
+Burkholderia cepacia	292	S	40	298	338	0.0167475969
+Burkholderia anthina	179879	S	14	275	289	0.0143196908
+Burkholderia stabilis	95485	S	17	245	262	0.0129818650
+Acidovorax sp. KKS102	358220	S	30	210	240	0.0118917848
+Mesorhizobium sp. Pch-S	2082387	S	132	93	225	0.0111485482
+Methylobacterium sp. FF17	2984843	S	19	192	211	0.0104548608
+Burkholderia pseudomultivorans	1207504	S	29	159	188	0.0093152314
+Burkholderia dolosa	152500	S	29	138	167	0.0082747002
+Cupriavidus metallidurans	119219	S	12	136	148	0.0073332673
+Burkholderia lata	482957	S	11	117	128	0.0063422852
+Paraburkholderia phytofirmans	261302	S	48	76	124	0.0061440888
+Burkholderia sp. FERM BP-3421	1494466	S	30	93	123	0.0060945397
+Acidovorax sp. FHTAMBA	3140252	S	20	97	117	0.0057972451
+Burkholderia latens	488446	S	21	91	112	0.0055494996
+Burkholderia mayonis	1385591	S	23	80	103	0.0051035576
+Leptospira sp. severe_002	2838237	S	24	77	101	0.0050044594
+Flavobacterium ammonificans	1751056	S	50	45	95	0.0047071648
+Burkholderia thailandensis	57975	S	17	74	91	0.0045089684
+Burkholderia diffusa	488732	S	10	74	84	0.0041621247
+Burkholderia gladioli	28095	S	20	56	76	0.0037657318
+Burkholderia arboris	488730	S	10	59	69	0.0034188881
+Burkholderia singularis	1503053	S	21	42	63	0.0031215935
+Massilia putida	1141883	S	18	38	56	0.0027747498
+Burkholderia glumae	337	S	10	37	47	0.0023288078
+Aquitalea denitrificans	519081	S	15	29	44	0.0021801605
+Trinickia violacea	2571746	S	11	28	39	0.0019324150
+Aquitalea aquatilis	1537400	S	12	17	29	0.0014369240
