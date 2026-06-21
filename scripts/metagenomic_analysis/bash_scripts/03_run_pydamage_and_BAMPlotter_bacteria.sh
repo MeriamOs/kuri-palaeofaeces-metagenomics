@@ -103,11 +103,12 @@ mkdir pydamage_stats
 ## MAPPING STATS ##
 ###################
 
+module purge
 module load SAMtools/1.12-GCC-9.2.0
 
 samtools coverage MS11669_maponly.bam | head -n 1 > header.txt
 
-for ref in $(grep '>' ../../references/diet-screen.fasta | awk '{print substr($1,2)}'); 
+for ref in $(grep '>' ../../references/COI_diet_screen.fasta | awk '{print substr($1,2)}'); 
     do
         echo "$ref"
         cat header.txt | sed "s/#rname/$ref/" > mapping_stats/${ref}_stats.txt
@@ -181,7 +182,7 @@ module load SAMtools/1.12-GCC-9.2.0
 
 samtools coverage MS11669_maponly.bam | head -n 1 > header.txt
 
-for ref in $(grep '>' ../../references/diet-screen.fasta | awk '{print substr($1,2)}'); 
+for ref in $(grep '>' ../../references/plants.fasta | awk '{print substr($1,2)}'); 
     do
         echo "$ref"
         cat header.txt | sed "s/#rname/$ref/" > mapping_stats/${ref}_stats.txt
