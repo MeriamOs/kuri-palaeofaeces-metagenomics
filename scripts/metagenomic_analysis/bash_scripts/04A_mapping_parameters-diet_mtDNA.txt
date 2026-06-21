@@ -1,6 +1,6 @@
 #variables for trimming and mapping
 #name of the reference file
-reffile=diet-screen.fasta
+reffile=diet_screen.fasta
 #directory with the reference file
 refdir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/references/
 #directory with the raw fastq 
