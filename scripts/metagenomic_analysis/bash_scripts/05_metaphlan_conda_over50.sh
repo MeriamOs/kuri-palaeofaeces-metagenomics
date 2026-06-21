@@ -31,16 +31,17 @@ module load SeqKit/2.4.0
 
 for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 \
               MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775;
-do
-seqkit seq ${DATADIR}/${sample}.unmapped.fastq.gz_lowcomplexityremoved.fq.gz \
-    --min-len 50 > bowtie2/${sample}_50bp_filtered.fq
-bowtie2 -x ${INDEXDIR}/${INDEX} \
-    -D 20 -R 3 -N 1 -L 20 -i S,1,0.50 \
-    -p 8 \
-    -U bowtie2/${sample}_50bp_filtered.fq \
-    -S bowtie2/${sample}_over50bp.sam
+    do
+    seqkit seq ${DATADIR}/${sample}.unmapped.fastq.gz_lowcomplexityremoved.fq.gz \
+        --min-len 50 > bowtie2/${sample}_50bp_filtered.fq
+    bowtie2 -x ${INDEXDIR}/${INDEX} \
+        -D 20 -R 3 -N 1 -L 20 -i S,1,0.50 \
+        -p 8 \
+        -U bowtie2/${sample}_50bp_filtered.fq \
+        -S bowtie2/${sample}_over50bp.sam
 done
 
+## Needed to run metaphlan ##
 MS11669_nread=23143727
 MS11670_nread=12166638
 MS11673_nread=20452543
@@ -59,83 +60,92 @@ MS11774_nread=22172485
 MS11775_nread=21080790
 
 for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 \
-    MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775;
-do
-value=$(eval echo \${${sample}_nread})
-metaphlan bowtie2/${sample}_over50bp.sam \
-    --input_type sam \
-    --nproc 4 \
-    -t rel_ab_w_read_stats \
-    --bowtie2db metaphlan_databases/metaphlan_jun23 \
-    --offline \
-    --nreads $value \
-    -o reports_over50bp/${sample}_jun23_over50bp.metaphlan_profile.txt
+              MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775;
+    do
+    value=$(eval echo \${${sample}_nread})
+    metaphlan bowtie2/${sample}_over50bp.sam \
+        --input_type sam \
+        --nproc 4 \
+        -t rel_ab_w_read_stats \
+        --bowtie2db metaphlan_databases/metaphlan_jun23 \
+        --offline \
+        --nreads $value \
+        -o reports_over50bp/${sample}_jun23_over50bp.metaphlan_profile.txt
 done
+
+############################################################
+## Run metaphlan for other samples without splitting data ##
+############################################################
+
+### BLANKS ###
 
 for sample in Blank1_WH Blank2_WH KH_blank_1 KH_blank_2 LB_blank_1 LB_blank_2 ;
-do
-metaphlan ${DATADIR}/${sample}.unmapped.fastq.gz_lowcomplexityremoved.fq.gz \
-    --input_type fastq \
-    --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
-    --nproc 4 \
-    --bowtie2db metaphlan_databases/metaphlan_jun23 \
-    --read_min_len 30 \
-    -t rel_ab_w_read_stats \
-    --index $INDEX \
-    --offline \
-    -t rel_ab_w_read_stats \
-    > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
+    do
+    metaphlan ${DATADIR}/${sample}.unmapped.fastq.gz_lowcomplexityremoved.fq.gz \
+        --input_type fastq \
+        --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
+        --nproc 4 \
+        --bowtie2db metaphlan_databases/metaphlan_jun23 \
+        --read_min_len 30 \
+        -t rel_ab_w_read_stats \
+        --index $INDEX \
+        --offline \
+        -t rel_ab_w_read_stats \
+        > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
 done
+
+### ENVIRONMENTAL CONTROLS ###
 
 DATADIR2='/nesi/project/uoo02328/meriam/data/decontam_data'
-for sample in MS10790 MS10902 MS10903 MS10904 MS11102 MS11103 MS11107 MS11108;
-do
-metaphlan ${DATADIR2}/${sample}.collapsed.gz \
-    --input_type fastq \
-    --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
-    --nproc 4 \
-    --bowtie2db metaphlan_databases/metaphlan_jun23 \
-    --read_min_len 30 \
-    -t rel_ab_w_read_stats \
-    --bt2_ps very-sensitive \
-    --index $INDEX \
-    --offline \
-    -t rel_ab_w_read_stats \
-    > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
+    for sample in MS10790 MS10902 MS10903 MS10904 MS11102 MS11103 MS11107 MS11108;
+    do
+    metaphlan ${DATADIR2}/${sample}.collapsed.gz \
+        --input_type fastq \
+        --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
+        --nproc 4 \
+        --bowtie2db metaphlan_databases/metaphlan_jun23 \
+        --read_min_len 30 \
+        -t rel_ab_w_read_stats \
+        --bt2_ps very-sensitive \
+        --index $INDEX \
+        --offline \
+        -t rel_ab_w_read_stats \
+        > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
 done
 
-#Laos
+### SUBSET OF LAOS DOG DATA ###
+
 DATADIR3='/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/laos_modern/trimmed_data'
 for sample in SRR14842426 SRR14842338 SRR14842349 SRR14842385 SRR14842352 \
-        SRR14842396 SRR14842341 SRR14842328 SRR14842325 SRR14842339;
-do
-metaphlan ${DATADIR3}/${sample}_trimmed/${sample}.collapsed.gz \
-    --input_type fastq \
-    --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
-    --nproc 4 \
-    --bowtie2db metaphlan_databases/metaphlan_jun23 \
-    --read_min_len 30 \
-    -t rel_ab_w_read_stats \
-    --index $INDEX \
-    --offline \
-    -t rel_ab_w_read_stats \
-    > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
+              SRR14842396 SRR14842341 SRR14842328 SRR14842325 SRR14842339;
+    do
+    metaphlan ${DATADIR3}/${sample}_trimmed/${sample}.collapsed.gz \
+        --input_type fastq \
+        --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
+        --nproc 4 \
+        --bowtie2db metaphlan_databases/metaphlan_jun23 \
+        --read_min_len 30 \
+        -t rel_ab_w_read_stats \
+        --index $INDEX \
+        --offline \
+        -t rel_ab_w_read_stats \
+        > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
 done
 
-#Inda
+### SUBSET OF INDIA DOG DATA ###
 DATADIR4='/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/yarlagadda_modern'
 for sample in SRR14842364 SRR14842376 SRR14842401 SRR14842403 SRR14842389 \
-        SRR14842361 SRR14842368 SRR14842383 SRR14842399 SRR14842362;
-do
-metaphlan ${DATADIR4}/${sample}_trimmed/${sample}.collapsed.gz \
-    --input_type fastq \
-    --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
-    --nproc 4 \
-    --bowtie2db metaphlan_databases/metaphlan_jun23 \
-    --read_min_len 30 \
-    -t rel_ab_w_read_stats \
-    --index $INDEX \
-    --offline \
-    -t rel_ab_w_read_stats \
-    > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
+              SRR14842361 SRR14842368 SRR14842383 SRR14842399 SRR14842362;
+    do
+    metaphlan ${DATADIR4}/${sample}_trimmed/${sample}.collapsed.gz \
+        --input_type fastq \
+        --bowtie2out reports_jun23_database/${sample}_jun23_nreads.bt2.out  \
+        --nproc 4 \
+        --bowtie2db metaphlan_databases/metaphlan_jun23 \
+        --read_min_len 30 \
+        -t rel_ab_w_read_stats \
+        --index $INDEX \
+        --offline \
+        -t rel_ab_w_read_stats \
+        > reports_jun23_database/${sample}_jun23_nreads.metaphlan_profile.txt
 done
