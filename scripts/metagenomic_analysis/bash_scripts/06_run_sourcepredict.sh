@@ -17,6 +17,8 @@ export PYTHONNOUSERSITE=1
 conda activate sourcepredict
 
 sourcepredict -s sp_sources_september2025.csv -l sp_labels_september2025.csv \
-    -o coproid.kuri.standard2024.september2025.50cutoff.sourcepredict.csv \
-    -e coproid.kuri.standard2024.sepetmber2025.50cutoff.embedding.csv -t 8 \
-    kraken_reports/kraken_kuri_50cutoff.csv 
+    -o coproid.kuri.standard2024.june2026.50cutoff.sourcepredict.csv \
+    -e coproid.kuri.standard2024.june2026.50cutoff.embedding.csv -t 8 \
+    kraken_reports/kraken_kuri_june2026_50cutoff.csv 
+
+conda deactivate
