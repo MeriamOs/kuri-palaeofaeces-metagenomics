@@ -14,4 +14,6 @@
 
 cd /nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis
 
-bash aDNA_mapper.sh mapping_parameters-diet.txt
+bash aDNA_mapper.sh 04A_mapping_parameters-diet_mtDNA.txtbash 
+aDNA_mapper.sh 04B_mapping_parameters-diet_COI.txt
+bash aDNA_mapper.sh 04C_mapping_parameters-diet_plants.txt
