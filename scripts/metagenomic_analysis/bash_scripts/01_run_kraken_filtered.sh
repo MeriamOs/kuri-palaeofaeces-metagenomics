@@ -1,7 +1,7 @@
 #!/bin/bash -e
 #SBATCH -A uoo02328
 #SBATCH -J krk2
-#SBATCH --time 4:00:00
+#SBATCH --time 2:00:00
 #SBATCH -N 1
 #SBATCH -c 1
 #SBATCH -n 1
@@ -34,7 +34,7 @@ DATADIR2='/nesi/project/uoo02328/meriam/data/decontam_data'
 
 ref='/nesi/nobackup/uoo02328/meriam/kraken/databases/2024-standard'
 
-for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 
+for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 \
 			MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775 \
 			WH_blank_1 WH_blank_2 KH_blank_1 KH_blank_2 LB_blank_1 LB_blank_2;
 	do
@@ -49,7 +49,7 @@ for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678
 		--gzip-compressed \
 		--minimum-base-quality 30 \
 		--confidence 0.50 \
-		${DATADIR}/${sample}.unmapped.fastq.gz_lowcomplexityremoved.dedup.fq.gz
+		${DATADIR}/${sample}.unmapped.lowcomplexityremoved.dedup.fq.gz
 done
 
 for sample in MS10790 MS10902 MS10903 MS10904 MS11102 MS11103 MS11107 MS11108;
