@@ -14,10 +14,4 @@
 
 cd /nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis
 
-#bash /nesi/project/uoo02328/programs/microbiome_capture/scripts/aDNA_trimmer.sh trim_QC_parameters.txt
-
 bash aDNA_mapper.sh mapping_parameters-diet.txt
-
-
-
-
