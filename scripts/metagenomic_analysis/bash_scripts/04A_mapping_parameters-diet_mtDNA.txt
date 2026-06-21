@@ -18,7 +18,7 @@ samplist=MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 MS11679
 # trimmed data main folder
 trim_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/eager_CanFam3.1/metagenomic_complexity_filter/fastp
 # target data file
-target_data=.unmapped.fastq.gz_lowcomplexityremoved.fq.gz
+target_data=.unmapped.lowcomplexityremoved.dedup.fq.gz
 # mapping folder 
 map_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/diet_mapping/mitochondrion/
 # bwa-specific option for seed length (-l)
