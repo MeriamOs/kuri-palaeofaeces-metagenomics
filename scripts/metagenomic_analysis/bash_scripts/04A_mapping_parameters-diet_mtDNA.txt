@@ -1,8 +1,6 @@
 #variables for trimming and mapping
 #name of the reference file
 reffile=diet-screen.fasta
-#COI_diet_screen.fasta
-#diet-screen.fasta 
 #directory with the reference file
 refdir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/references/
 #directory with the raw fastq 
@@ -22,7 +20,6 @@ trim_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/eager_Can
 # target data file
 target_data=.unmapped.fastq.gz_lowcomplexityremoved.fq.gz
 # mapping folder 
-#map_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/diet_mapping/COI_region/
 map_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/diet_mapping/mitochondrion/
 # bwa-specific option for seed length (-l)
 seedlength=1024
