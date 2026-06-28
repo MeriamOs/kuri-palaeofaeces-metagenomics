@@ -20,6 +20,21 @@ for sample in MS10790 MS10902 MS10903 MS10904 MS11102 MS11103 MS11107 MS11108 \
                 reports/${sample}_dedup_kraken_${prefix}_conf0.50_minimizer.txt
 done
 
+##############################################
+## COMBINE KRAKEN REPORTS FOR SOURCEPREDICT ##
+##############################################
+
+for sample in MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 \
+              MS11679 MS11683 MS11684 MS11686 MS11770 MS11771 MS11774 MS11775
+        do
+        python kraken_parse.py -c 100 \
+                reports/${sample}_dedup_kraken_${prefix}_conf0.50_minimizer.txt 
+done
+
+cd reports_parse/
+
+python ../kraken_merge.py -or kraken_kuri_june2026_100count_minimizer.csv 
+
 #################
 ## RUN BRACKEN ##
 #################
