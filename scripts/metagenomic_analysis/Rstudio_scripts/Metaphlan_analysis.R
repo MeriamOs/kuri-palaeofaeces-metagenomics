@@ -2,6 +2,7 @@
 #Script written by Meriam van Os
 #Used for downstream analysis of metagenomic shotgun data from kuri (dog) palaeofaeces
 #Uploaded 18/09/2025
+#Edited in July 2026 M. van Os
 
 library(phyloseq)
 library(readr)
@@ -24,36 +25,15 @@ setwd("~/Documents/Rstudio/r-tidyverse")
 ### LOAD METAPHLAN DATA ### 
 ###########################
 
-mpa_u50bp <- read.table("merged_under50bp_table_species.txt", header = TRUE) %>%
-  dplyr::rename_with(~str_remove(., '_jun23')) %>% 
-  dplyr::rename_with(~str_remove(., '.metaphlan')) %>% 
-  rename("ID" = colnames(.)[1]) %>%
-  mutate(ID = gsub("^.*s__|","", ID))
-
-mpa_o50bp <- read.table("merged_over50bp_table_species.txt", header = TRUE) %>%
-  dplyr::rename_with(~str_remove(., '_jun23')) %>% 
-  dplyr::rename_with(~str_remove(., '.metaphlan')) %>% 
-  rename("ID" = colnames(.)[1]) %>%
-  mutate(ID = gsub("^.*s__|","", ID))
-
-neg <- read.table("merged_negatives_table_species.txt", header = TRUE) %>%
-  dplyr::rename_with(~str_remove(., '_jun23')) %>% 
-  dplyr::rename_with(~str_remove(., '_nreads.metaphlan')) %>% 
-  rename("ID" = colnames(.)[1]) %>%
-  mutate(ID = gsub("^.*s__|","", ID))
-
-modern <- read.table("merged_modern_dog_human_table_species.txt", header = TRUE) %>%
-  dplyr::rename_with(~str_remove(., '_jun23')) %>% 
-  dplyr::rename_with(~str_remove(., '_nreads.metaphlan')) %>% 
-  rename("ID" = colnames(.)[1]) %>%
-  mutate(ID = gsub("^.*s__|","", ID))
+mpa_pal <- read.table("merged_palaeofaeces_metaphlan_table_species.txt", header = TRUE) %>%
+   dplyr::rename_with(~str_remove(., '_jun23')) %>% 
+   dplyr::rename_with(~str_remove(., '.metaphlan')) %>% 
+   dplyr::rename_with(~str_remove(., '_nreads')) %>% 
+   rename("ID" = colnames(.)[1]) %>%
+   mutate(ID = gsub("^.*s__|","", ID))
 
 ### Combine datasets
-mpa_all <- mpa_u50bp
-mpa_all <- merge(mpa_u50bp, mpa_o50bp, by = "ID", all = TRUE)
-mpa_all <- merge(mpa_all, modern, by = "ID", all = TRUE)
-mpa_all <- merge(mpa_all, neg, by = "ID", all = TRUE)
-#mpa_all <- mpa_all[, -c(9, 25)]
+mpa_all <- mpa_pal
 
 ### transpose dataset
 mpaT <- t(mpa_all[-1]) %>%
@@ -63,7 +43,10 @@ colnames(mpaT) <- mpa_all$ID
 
 mpaT[is.na(mpaT)] <- 0.0 #set NAs to 0
 
-### filter dataset to remove low abundant taxa
+##################################################
+### filter dataset to remove low abundant taxa ###
+##################################################
+
 count_cut_off <- 0.5 #percentage in metaphlan, vs fraction (out of 1.0) in kraken2
 
 mpa_filter <- mpaT[, apply(mpaT, 2, function(col) any(col >= count_cut_off))]
@@ -74,7 +57,10 @@ CLR <- microbiome::transform(mpa_filter, "clr", pseudocount = 1)
 dim(CLR) #check is dimensions are correct
 #[1] 16 (samples) X (taxa)
 
-### Scree plot
+##################
+### Scree plot ###
+##################
+
 tune_pca <- tune.pca(CLR, ncomp = 10, scale = TRUE)
 variation <- as.data.frame(tune_pca$prop_expl_var) %>%
   rownames_to_column()
@@ -87,29 +73,31 @@ ggplot(variation, aes(x = fct_inorder(PC), y = X)) +
        x = "Principal Component",
        y = "Variance Explained (%)") +
   theme_minimal() 
+
 ## Check for elbow in explained proportions of principal components
 ## > elbow occurs at 3/4 components
 
-#ggsave("Scree plot - variance explained principal components.png", 
-#       width = 12, height = 8)
+ggsave("Scree plot - variance explained principal components.png", 
+       width = 12, height = 8)
 
-### PCA analysis on CLR transformed dataset 
-## set number of components (ncomp) to findings from sree plot
+###############################################
+### PCA analysis on CLR transformed dataset ###
+###############################################
+
+## set number of components (ncomp) to findings from scree plot
 pca_result <- mixOmics::pca(CLR, ncomp = 2, scale = TRUE, center = TRUE)
 plotIndiv(pca_result, comp = c(1, 2))
-#plotIndiv(pca_result, style = '3d') 
-
 
 pca_scores <- as.data.frame(pca_result$variates$X)  # Get scores for the components
 pca_scores$Sample <- rownames(pca_scores)  # Add sample names as a column
 
 site_info <- read.csv("sample_site_info.csv")
-site_info <- site_info[17:32,]
+site_info <- site_info[103:118,]
 
-### Merge PCA scores with site information
+## Merge PCA scores with site information
 pca_plot_data <- merge(pca_scores, site_info, by = "Sample")
 
-### Create the PCA plot
+## Create the PCA plot
 #scatter <- 
 ggplot(data = pca_plot_data, 
        aes(x = PC1, y = PC2, colour = Site, 
@@ -118,15 +106,15 @@ ggplot(data = pca_plot_data,
   #  stat_ellipse(aes(group = Island), level = 0.95) +
   geom_line(data = subset(pca_plot_data, grepl("^MS", sample)), 
               aes(group = sample), alpha = 0.5) +
-  labs(x = "PC1 (17%)", #NOTE: put in PC values
-       y = "PC2 (15%)", #NOTE: put in PC values
+  labs(x = "PC1 (18%)", #NOTE: put in PC values
+       y = "PC2 (16%)", #NOTE: put in PC values
        title = "PCA with CLR transformation", size = 16) +
    scale_color_brewer(palette = "Set1",
-                      limits = c("Long Bay", "Kahukura", 
-                                 "Whenua Hou pre-contact", 
-                                 "Whenua Hou historic"
-                                 # "modern_dog", "arch_bone", 
-                                 # "blank", "modern_human"
+                      limits = c("Long_Bay", "Kahukura", 
+                                 "Whenua_Hou_pre", 
+                                 "Whenua_Hou_post"
+                                 #"modern_dog", "arch_bone", 
+                                 #"blank", "modern_human"
                                  ),
                       labels = c("Long Bay pre-contact (n=4)", 
                                  "Kahukura pre-contact (n=4)", 
@@ -137,7 +125,7 @@ ggplot(data = pca_plot_data,
                                  ),
                       guide = guide_legend(nrow = 2)) +
   scale_shape_manual(values = c(17, 16), 
-                     labels = c("Post-contact", "Pre-contact"),
+                     labels = c("post-contact", "pre-contact"),
                      guide = guide_legend(nrow = 2)) +
     # scale_shape_manual(values = c(16, 17, 15), 
     #                   labels = c("All", "Over 50 bp", "Under 50 bp"),
@@ -155,38 +143,11 @@ ggplot(data = pca_plot_data,
 
 #ggplotly(scatter)
 
-
-### Save the plot 
 #ggsave("PCA_CLR_kuri_sp_cutoff_0.1percent_metaphlan_period.png", 
 #       width = 10, height = 8)  
   
-ggsave("PCA_CLR_neg_modern_dog_human_sp_cutoff_1percent_metaphlan.png", 
-       width = 12, height = 10)
-
-### Visualise number of reads over 50bp and under 50 bp
-nreads <- read.csv("nreads_50bp_split_per_sample.csv")
-
-nreads_long <- nreads %>%
-  pivot_longer(cols = -sample, names_to = "read_type", values_to = "reads")
-
-ggplot(nreads_long, 
-       aes(y = sample, x = reads, fill = read_type)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(x = "Sample", y = "Number of Reads", fill = "Read Type") +
-  scale_x_continuous(labels = comma) +
-  theme(
-    plot.title = element_text(size = 20, face = "bold", , hjust = 0.5),
-    legend.title = element_text(size = 20, face = "bold"), 
-    legend.text = element_text(size = 20),
-    legend.position = "bottom",  
-    legend.direction = "horizontal",
-    axis.title.x = element_text(size = 20),  # Change x-axis title size
-    axis.title.y = element_text(size = 20),
-    axis.text.x = element_text(size = 18),
-    axis.text.y = element_text(size = 18)) 
-
-ggsave("nreads_under_and_over_50bp_per_sample.png", 
-       width = 12, height = 8)
+ggsave("pub_PCA_CLR_palaeofaeces_cutoff_0.5percent_metaphlan.png", 
+       width = 5.5, height = 5)
 
 ##########################
 ### PERMANOVA ANALYSIS ###
@@ -237,7 +198,7 @@ res_tax <- rownames_to_column(res) %>%
   as.data.frame()
 # colnames(res_tax)[1] <- "taxonomy_id"
 
-### Create interactive vulcano plot to visualise taxa drivers
+## Create interactive vulcano plot to visualise taxa drivers
 vulcano <- ggplot(res_tax, aes(x = log2FoldChange, y = -log10(padj),
                                text = paste("Taxid:", rowname))) +
   geom_point(aes(color = padj < 0.01), alpha = 0.6) +
@@ -251,7 +212,7 @@ vulcano_interactive
 
 #htmlwidgets::saveWidget(vulcano_interactive, "interactive_vulcano_plot_t0.75_c0.001_pre_vs_post-contact.html")
 
-### Extract significant taxa and output as CSV file
+## Extract significant taxa and output as CSV file
 significant_taxa <- subset(res, padj < 0.05) %>%
   as.data.frame()
 
@@ -282,6 +243,4 @@ fit_data = Maaslin2(input_data     = CLR,
                     fixed_effects  = c("Period"),
 #                    reference      = c("Sex,male")
                     heatmap_first_n = 100,
-                    max_pngs        = 150
-)
-
+                    max_pngs        = 150)
