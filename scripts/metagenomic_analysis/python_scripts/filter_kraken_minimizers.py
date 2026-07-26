@@ -1,6 +1,6 @@
 import sys
 
-def filter_kraken_report(input_file, output_file, kmer_threshold=1000):
+def filter_kraken_report(input_file, output_file, kmer_threshold=100):
     """
     Filters a Kraken2 report file, keeping rows where the fifth column 
     (distinct k-mers) is greater than a specified threshold.
@@ -38,4 +38,4 @@ if __name__ == "__main__":
     output_file = sys.argv[2]
 
     # Default threshold is 100 distinct kmers
-    filter_kraken_report(input_file, output_file, kmer_threshold=1000)
+    filter_kraken_report(input_file, output_file, kmer_threshold=100)
