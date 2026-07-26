@@ -9,7 +9,7 @@ prefix=2024-standard
 ## FILTER WITH MINIMIZERS ##
 ############################
 
-# Minimal minimizers set to 1000
+# Minimal minimizers set to 100
 
 for sample in MS10790 MS10902 MS10903 MS10904 MS11102 MS11103 MS11107 MS11108 \
               MS11669 MS11670 MS11673 MS11674 MS11675 MS11676 MS11677 MS11678 \
@@ -33,7 +33,7 @@ done
 
 cd reports_parse/
 
-python ../kraken_merge.py -or kraken_kuri_june2026_1000count_minimizer.csv 
+python ../kraken_merge.py -or kraken_kuri_june2026_100count_minimizer.csv 
 
 #################
 ## RUN BRACKEN ##
