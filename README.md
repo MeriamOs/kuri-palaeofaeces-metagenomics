@@ -27,7 +27,7 @@ results are orderd by the type of analysis, including
 - mapdamage/ <br>
     - fragmisincorporation_plots/ <br>
     - frequencies/ <br>
-    - ength_plots/ <br>
+    - length_plots/ <br>
 - metaphlan/ <br>
     - reports_negatives/ <br>
     - reports_palaeofaeces/ <br>
