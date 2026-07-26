@@ -38,4 +38,4 @@ if __name__ == "__main__":
     output_file = sys.argv[2]
 
     # Default threshold is 100 distinct kmers
-    filter_kraken_report(input_file, output_file, kmer_threshold=100)
+    filter_kraken_report(input_file, output_file, kmer_threshold=1000)
