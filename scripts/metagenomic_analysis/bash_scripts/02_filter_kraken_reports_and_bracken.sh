@@ -33,7 +33,7 @@ done
 
 cd reports_parse/
 
-python ../kraken_merge.py -or kraken_kuri_june2026_100count_minimizer.csv 
+python ../kraken_merge.py -or kraken_kuri_june2026_1000count_minimizer.csv 
 
 #################
 ## RUN BRACKEN ##
