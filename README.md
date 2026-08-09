@@ -3,6 +3,7 @@ This repository contains the scripts and files used for the metagenomic analyses
 
 scripts contains all the scripts, divided into two parts: one kuri genome analysis part, and another metagenomic part
 
+scripts/
 - genome_analysis/ <br>
     - Rstudio_scripts/ <br>
     - bash_scripts/ <br>
@@ -14,6 +15,7 @@ scripts contains all the scripts, divided into two parts: one kuri genome analys
 
 results are orderd by the type of analysis, including
 
+results/
 - bacterial_mapping/ <br>
     - all_bacteria/ <br>
     - fish_spoilers/ <br>
