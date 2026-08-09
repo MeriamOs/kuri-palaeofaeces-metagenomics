@@ -1,10 +1,11 @@
 #!/bin/bash -e
 
-#13-10-2016 #protocol by Catherine Collins #scripting by Sophia Cameron-Christie
+#13-10-2016 # protocol by Catherine Collins #scripting by Sophia Cameron-Christie
 #29-05-2020 # edited by Anna Gosling
 #22-06-2020 # edited by Catherine to run on NeSI. All programs and parameters remain the same.
-#31-07-2020 #edited by Catherine to map fastq reads from shotgun sequencing libraries from Wairau Bar lesion samples to human genome build hg37
-# 31-05-2021 # edited by Hugh Cross to import variables from file, and allow for multiple adapters
+#31-05-2021 # edited by Hugh Cross to import variables from file, and allow for multiple adapters
+#April 2025 # edited by Meriam van Os for modern data using BWA mem
+#June 2026  # edited by Meriam van Os to pin BWA version
 
 #variables
 #name of the reference file
@@ -69,12 +70,12 @@ echo 'variables read, proceeding'
 
 #variables that shouldn't need changing - but may be worth checking if versions have updated
 
-module load BWA
+module load BWA/0.7.17-GCC-11.3.0
 module load SAMtools/1.12-GCC-9.2.0
 module load Java/15.0.2
 #module load GATK/4.1.4.1-gimkl-2018b
 #module load picard/2.21.8-Java-11.0.4
-module load mapDamage
+#module load mapDamage
 
 ##########################################################################################################################################################################
 
@@ -115,8 +116,8 @@ do
 
 ##Find the SA coordinates of the input reads, using .collapsed reads only 
 
-bwa mem -t $threads $ref ${trim_dir}/${samp}${target_data} > ${samp}.sam
-#bwa mem -t $threads $ref ${trim_dir}/${samp}_trimmed/${samp}.${target_data} > ${samp}.sam
+#bwa mem -t $threads $ref ${trim_dir}/${samp}_trimmed/${target_data} > ${samp}.sam
+bwa mem -t $threads $ref ${trim_dir}/${samp}_trimmed/${samp}.${target_data} > ${samp}.sam
 
 #get the total reads for calculating endogenous percent
 
@@ -167,20 +168,6 @@ collapsedtotal=$(samtools view -c ${samp}_maponly.bam)
 
 echo "$samp $collapsedtotal" >> uniq_mapped_reads.txt
 
-###############
-## mapDamage ## 
-###############
-
-#quantifies DNA damage patterns aDNA NGS sequencing reads
-# leaving out for now, as takes a long time
-if [[ "$mapdamage" = 'yes' ]]; then
-echo 'map damage will be run on sample'
-mapDamage -i ${samp}_maponly.bam -r $ref --rescale 
-else
-echo 'map damage will not be run on sample'
-fi 
-
-
 done
 
 # get rid of sam files, and move intermediate files to intermediate folder
@@ -190,11 +177,11 @@ echo "creating intermediate_files directory"
 mkdir intermediate_files
 fi 
 
+mv *.sai intermediate_files
 mv *.bam intermediate_files
 mv intermediate_files/*_maponly.bam ./
-mv intermediate_files/*_unmapped.bam ./
 
-#rm *.sam
+rm *.sam
 
 echo 'total reads mapped:' >> $logfilename
 cat total_reads.txt >> $logfilename
@@ -202,4 +189,3 @@ cat total_reads.txt >> $logfilename
 echo ' ' >> $logfilename
 echo 'unique reads mapped:' >> $logfilename
 cat uniq_mapped_reads.txt >> $logfilename
-
