@@ -1,0 +1,4 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Paraburkholderia aromaticivorans	2026199	S	34	519	553	0.78329
+Mesorhizobium terrae	2725666	S	22	80	102	0.14448
+Homo sapiens	9606	S	36	14	50	0.07082

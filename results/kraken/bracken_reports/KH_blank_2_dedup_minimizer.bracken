@@ -1,0 +1,12 @@
+name	taxonomy_id	taxonomy_lvl	kraken_assigned_reads	added_reads	new_est_reads	fraction_total_reads
+Mesorhizobium sp. Pch-S	2082387	S	39	58	97	0.03851
+Mesorhizobium sp. PAMC28654	2880934	S	26	76	102	0.04049
+Mesorhizobium terrae	2725666	S	92	262	354	0.14053
+Acidovorax sp. KKS102	358220	S	15	346	361	0.14331
+Curvibacter sp. AEP1-3	1844971	S	12	88	100	0.03970
+Flavobacterium sp. CECT 9288	2845819	S	38	104	142	0.05637
+Flavobacterium sp. CHNK8	2871165	S	13	32	45	0.01786
+Flavobacterium ammonificans	1751056	S	51	89	140	0.05558
+Cutibacterium acnes	1747	S	91	143	234	0.09289
+Gordonia polyisoprenivorans	84595	S	24	28	52	0.02064
+Homo sapiens	9606	S	835	49	884	0.35093

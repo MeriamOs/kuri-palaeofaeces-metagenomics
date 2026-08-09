@@ -1,10 +1,10 @@
 #!/bin/bash -e
 
-#13-10-2016 #protocol by Catherine Collins #scripting by Sophia Cameron-Christie
+#13-10-2016 # protocol by Catherine Collins #scripting by Sophia Cameron-Christie
 #29-05-2020 # edited by Anna Gosling
 #22-06-2020 # edited by Catherine to run on NeSI. All programs and parameters remain the same.
-#31-07-2020 #edited by Catherine to map fastq reads from shotgun sequencing libraries from Wairau Bar lesion samples to human genome build hg37
-# 31-05-2021 # edited by Hugh Cross to import variables from file, and allow for multiple adapters
+#31-07-2020 # edited by Catherine to map fastq reads from shotgun sequencing libraries from Wairau Bar lesion samples to human genome build hg37
+#31-05-2021 # edited by Hugh Cross to import variables from file, and allow for multiple adapters
 
 #variables
 #name of the reference file

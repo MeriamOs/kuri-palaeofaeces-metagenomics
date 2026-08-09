@@ -1,6 +1,7 @@
 #Script written by Meriam van Os
 #Used for downstream analysis of metagenomic shotgun data from kuri (dog) palaeofaeces
 #Uploaded 18/09/2025
+#Edited July 2026 M. van Os
 
 library(readr)
 library(dplyr)
@@ -8,6 +9,7 @@ library(ggplot2)
 library(RColorBrewer)
 library(viridisLite)
 library(ggnewscale)
+library(Manu)
 
 setwd("~/Documents/Rstudio/r-tidyverse")
 
@@ -125,9 +127,46 @@ ggplot(sorted, aes(x = AD, y = host_DNA, fill = AD)) +
 modern <- dplyr::select(modern_dog, Sample, host_DNA, AD)
 
 kuri <- read_csv("MR_kuri.csv")
+kuri <- kuri[,1:3]
+
 head(kuri)
 # A tibble: 6 × 3
 # Sample  host_DNA AD 
+
+kuri$Site <- factor(
+  kuri$Site,
+  levels = c(
+    "Long_Bay",
+    "Kahukura",
+    "Whenua_Hou_pre",
+    "Whenua_Hou_post"))
+
+ggplot(kuri, aes(x = Site, y = host_DNA, fill = Site)) +
+  geom_boxplot(alpha = 0.8) +
+  geom_point() +
+  scale_fill_brewer(palette = "Set1",
+                  limits = c("Long_Bay", "Kahukura", 
+                             "Whenua_Hou_pre", 
+                             "Whenua_Hou_post"),
+                  labels = c("Long Bay pre-contact (n=10)", 
+                             "Kahukura pre-contact (n=10)", 
+                             "Whenua Hou pre-contact (n=5)", 
+                             "Whenua Hou post-contact (n=5)")) +
+  labs(x = NULL, y = "Dog DNA (%)", fill = "Site") +
+  theme_bw() +
+  theme(axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
+      strip.text = element_text(size = 20, face = "bold"),  # Change facet label size
+      legend.text = element_text(size = 20),
+      #axis.title.x = element_text(size = 20),  # Change x-axis title size
+      axis.title.y = element_text(size = 30),  # Change y-axis title size
+      axis.text.y = element_text(size = 20, face = "bold"),
+      legend.title = element_text(size = 30, face = "bold"),
+      legend.position = "right") 
+
+ggsave("talk_Endogenous_DNA_percentage_boxplots_kuri.png", 
+       width = 12, height = 6)
 
 merged <- rbind(modern, kuri)
 
@@ -140,10 +179,14 @@ merged$AD <- factor(merged$AD,
                       "Laos Dog", "SA, Farm", "SA, Suburban",
                       "SA, Urban", "Not available", "Palaeofaeces"))
 
+my_cols <- c(brewer.pal(8, "Set2"), "#D04E59")
+
 ggplot(merged, aes(x = AD, y = host_DNA, fill = AD)) +
   geom_boxplot() +
   geom_point() +
-  scale_fill_brewer(palette = "Set3",
+  scale_fill_manual(
+ #                   palette = "Set2",
+                    values = my_cols,
                     labels = c("USA Dog (n = 10)",
                                "India, Shelter (n = 20)",
                                "India, Street (n = 14)",
@@ -152,25 +195,39 @@ ggplot(merged, aes(x = AD, y = host_DNA, fill = AD)) +
                                "South Africa, Suburban (n = 4)",
                                "South Africa, Urban (n = 12)",
                                "Not available (n = 11)",
-                               "Palaeofaeces (n = 30)"),
-                    guide = guide_legend(nrow = 3)) +
-  labs(x = "Dog category", 
-       y = "Endogenous DNA percentage", 
-       title = "Boxplots of endogenous DNA percentage per dog lifestyle category", size = 16) +
+                               "Palaeofaeces (n = 30)") #,
+ #                   guide = guide_legend(nrow = 3)
+                    ) +
+  labs(x = "Dog population", 
+       y = "Host DNA (%)", 
+       title = "Boxplots of host DNA percentage per dog lifestyle category", size = 16) +
+  scale_x_discrete(
+    labels = c("USA Dog\n(n = 10)",
+               "India, Shelter\n(n = 20)",
+               "India, Street\n(n = 14)",
+               "Laos Dog\n(n = 33)",
+               "South Africa, Farm\n(n = 3)",
+               "South Africa, Suburban\n(n = 4)",
+               "South Africa, Urban\n(n = 12)",
+               "Not available\n(n = 11)",
+               "Palaeofaeces\n(n = 30)")) +
+  theme_minimal() +
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1, size = 20),
     axis.text.y = element_text(size = 20),
-    plot.title = element_text(size = 20, 
-                              face = "bold", , hjust = 0.5),
-    legend.title = element_blank(), 
-    legend.text = element_text(size = 22),
+    title = element_blank(),
+#    plot.title = element_text(size = 20, 
+#                               face = "bold", , hjust = 0.5),
+    legend.position = "none",
+#    legend.title = element_blank(), 
+#    legend.text = element_text(size = 22),
+#    legend.position = "bottom",  
+#    legend.direction = "horizontal",
     axis.title.x = element_text(size = 22, face = "bold"),  
-    axis.title.y = element_text(size = 22, face = "bold"),
-    legend.position = "bottom",  
-    legend.direction = "horizontal")  
+    axis.title.y = element_text(size = 22, face = "bold"))  
 
-#ggsave("Endogenous_DNA_percentage_boxplots_modern_and_kuri_ppp.png", 
-#       width = 14, height = 10)
+ggsave("pub_Endogenous_DNA_percentage_boxplots_modern_and_kuri_ppp.png", 
+       width = 12, height = 6)
 
 #anova test
 anova_result <- aov(`host_DNA` ~ AD, data = merged)
@@ -269,6 +326,8 @@ kuri <- read_csv("MR_kuri.csv")
 colnames(kuri)[2] <- "MR (%)"
 colnames(kuri)[3] <- "Diet"
 
+kuri$Diet[kuri$Diet == "palaeofaeces"] <- "Palaeofaeces"
+
 kuri <- kuri[, c(1, 3, 2)]
 merged <- rbind(cui, kuri)
 
@@ -282,37 +341,46 @@ merged %>%
     max_MR = max(`MR (%)`, na.rm = TRUE),
     n = n())
 
-merged$Diet <- factor(merged$Diet, levels = c("Herbivore", "Omnivore", "Carnivore", "palaeofaeces"))
+merged$Diet <- factor(merged$Diet, levels = c("Herbivore", "Omnivore", "Carnivore", "Palaeofaeces"))
 
 ggplot(merged, aes(x = Diet, y = `MR (%)`, fill = Diet)) +
   geom_boxplot() +
   geom_point() +
   scale_fill_manual(
-    values = c("Herbivore" = "#66c2a5",
-               "Omnivore" = "#fc8d62",
-               "Carnivore" = "#8da0cb",
-               "palaeofaeces" = "gray90"),
+    # values = c("Herbivore" = "#66c2a5",
+    #            "Omnivore" = "#fc8d62",
+    #            "Carnivore" = "#8da0cb",
+    #            "palaeofaeces" = "gray90"),
+    values = get_pal("Hoiho"),
     labels = c("Herbivore (n = 26)",
                "Omnivore (n = 3)",
                "Carnivore (n = 19)",
                "Palaeofaeces (n = 30)")) +
   labs(x = "Dietary class", 
-       y = "Endogenous DNA percentage", 
-       title = "Boxplots of endogenous DNA percentage per diet classification", size = 16) +
+       y = "Host DNA (%)", 
+       title = "Boxplots of host DNA percentage per diet classification", size = 16) +
+  scale_x_discrete(
+    labels = c("Herbivore\n(n = 26)",
+               "Omnivore\n(n = 3)",
+               "Carnivore\n(n = 19)",
+               "Palaeofaeces\n(n = 30)")) +
+  theme_minimal() +
   theme(
-    axis.text.x = element_blank(),
-    plot.title = element_text(size = 18, 
-                              face = "bold", , hjust = 0.5),
-    legend.title = element_blank(), 
-    legend.text = element_text(size = 16),
-    axis.title.x = element_text(size = 16),  # Change x-axis title size
-    axis.title.y = element_text(size = 16),
-    axis.text.y = element_text(size = 14),
-    legend.position = "bottom",  
-    legend.direction = "horizontal") 
+    title = element_blank(),
+    # plot.title = element_text(size = 18, 
+    #                           face = "bold", , hjust = 0.5),
+    # legend.title = element_blank(), 
+    # legend.text = element_text(size = 16),
+    # legend.position = "bottom",  
+    # legend.direction = "horizontal",
+    legend.position = "none",
+    axis.title.x = element_text(size = 22, face = "bold"),  # Change x-axis title size
+    axis.title.y = element_text(size = 22, face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 20),
+    axis.text.y = element_text(size = 20)) 
 
-ggsave("Endogenous_DNA_percentage_boxplots_per_diet_Cui_and_palaeofaeces_ppp.png", 
-       width = 10, height = 6)
+ggsave("pub_Endogenous_DNA_percentage_boxplots_per_diet_Cui_and_palaeofaeces_ppp.png", 
+       width = 6, height = 6)
 
 ######################
 #### ANOVA TESTING ###

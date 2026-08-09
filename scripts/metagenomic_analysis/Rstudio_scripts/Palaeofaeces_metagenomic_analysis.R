@@ -1,6 +1,7 @@
 #Script written by Meriam van Os
 #Used for downstream analysis of metagenomic shotgun data from kuri (dog) palaeofaeces
 #Uploaded 18/09/2025
+#Edited July 2026 for paper revisions M. van Os
 
 library(decontam)
 library(vegan)
@@ -22,8 +23,10 @@ library(tibble)
 library(tidyr)
 library(pheatmap)
 library(RColorBrewer)
+library(cowplot)
+library(reshape2)
 
-#setwd("~/Documents/Rstudio/r-tidyverse")
+setwd("~/Documents/Rstudio/r-tidyverse")
 
 ############################
 ### GENERAL KRAKEN STATS ###
@@ -57,14 +60,15 @@ combined_plot <- ggplot(stats_long, aes(x = Site, y = Value, fill = Site)) +
   geom_boxplot() +
   scale_y_continuous(labels = comma) +
   labs(title = "Boxplots of number of non-host reads per site", 
-       x = "Reads", 
+       x = NULL, 
        y = "Value") +
   facet_wrap(~Reads, scales = "free",
              labeller = as_labeller(c(
-               "Number of raw reads" = "A. Number of raw reads",
-               "Classified reads" = "B. Classified reads"
+               "Number of raw reads" = "A. Number of reads",
+               "Classified reads" = "B. Classified reads (%)"
              ))) +
   scale_fill_brewer(palette = "Set1",
+                    name = "Site",
                     limits = c("Long_Bay", "Kahukura", 
                                "Whenua_Hou_pre", 
                                "Whenua_Hou_post"),
@@ -72,33 +76,36 @@ combined_plot <- ggplot(stats_long, aes(x = Site, y = Value, fill = Site)) +
                                "Kahukura pre-contact (n=4)", 
                                "Whenua Hou pre-contact (n=5)", 
                                "Whenua Hou post-contact (n=3)")) +
+  theme_minimal() +
   theme(axis.text.x = element_blank(), 
         plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
-        strip.text = element_text(size = 20,, face = "bold"),  # Change facet label size
+        strip.text = element_text(size = 20, face = "bold"),  # Change facet label size
         legend.text = element_text(size = 20),
         axis.title.x = element_text(size = 20),  # Change x-axis title size
         axis.title.y = element_text(size = 20),  # Change y-axis title size
-        axis.text.y = element_text(size = 18),
+        axis.text.y = element_text(size = 20, face = "bold"),
+        legend.title = element_text(size = 20, face = "bold"),
         legend.position = "bottom",  # Move the legend to the bottom
         legend.direction = "horizontal") +
-  guides(fill = guide_legend(ncol = 2, title = NULL))
+  guides(fill = guide_legend(ncol = 2))
 
 combined_plot
-ggsave("boxplots_no_non-host_reads_&_percentage_of_kraken2_classified_reads.png", 
-       combined_plot, width = 12, height = 6)
+
+ggsave("pub_boxplots_no_non-host_reads_&_percentage_of_kraken2_classified_reads.png", 
+       combined_plot, width = 12, height = 5)
 
 ##########################
 ### RAREFACTION CURVES ###
 ##########################
 
-samples <- readr::read_csv(file = 'palaeofaeces_combined_2024-standard_minimizer_bracken_species.csv')
+samples <- readr::read_csv(file = 'palaeofaeces_combined_2024-standard_dedup_minimizer_bracken_species.csv')
 
 #Decontaminate count dataframe
 samples_num <- dplyr::select(samples,
                              name, taxonomy_id,
                              contains("num")) %>%
   dplyr::rename_with(~str_remove(., '_filtered.bracken_num')) %>%
-  dplyr::rename_with(~str_remove(., '_minimizer'))
+  dplyr::rename_with(~str_remove(., '_dedup_minimizer'))
 
 samples_numT <- t(samples_num[ ,-c(1:2)]) %>%
   as.data.frame()
@@ -113,7 +120,7 @@ site_cols   <- setNames(brewer.pal(length(site_levels), "Set1"), site_levels)
 
 col_vector  <- site_cols[ site_info$Site[ match(rownames(samples_numT), site_info$Sample) ] ]
 
-png("rarefaction_curves_kraken2_standard.png", width = 8, height = 6, units = "in", res = 300) 
+png("rarefaction_curves_dedup_kraken2_standard.png", width = 8, height = 6, units = "in", res = 300) 
 rarecurve(samples_numT, step = 1000, col = col_vector, cex = 0.8, 
           sample= raremin, xlab = "Sample Size", ylab = "Species", 
           cex.lab = 1.5, cex.axis = 1.3,
@@ -136,20 +143,20 @@ dev.off()
 ###########################################
 
 #read in combined sample bracken table and select the fraction columns (rather than read columns)
-samples <- readr::read_csv(file = 'palaeofaeces_combined_2024-standard_minimizer_bracken_species.csv')
+samples <- readr::read_csv(file = 'palaeofaeces_combined_2024-standard_dedup_minimizer_bracken_species.csv')
 samples_frac <- dplyr::select(samples, 
                         name, taxonomy_id, 
                         contains("frac")) %>% 
   dplyr::rename_with(~str_remove(., '_filtered.bracken_frac')) %>%
-  dplyr::rename_with(~str_remove(., '_minimizer'))
+  dplyr::rename_with(~str_remove(., '_dedup_minimizer'))
 
 #read in combined environmental control bracken table and select the fraction columns (rather than read columns)
-blanks <- readr::read_csv(file = 'negatives_combined_2024-standard_minimizer_bracken_species.csv')
+blanks <- readr::read_csv(file = 'negatives_combined_2024-standard_dedup_minimizer_bracken_species.csv')
 blanks <- dplyr::select(blanks, 
                          name, taxonomy_id, 
                          contains("frac")) %>% 
   dplyr::rename_with(~str_remove(., '_filtered.bracken_frac')) %>%
-  dplyr::rename_with(~str_remove(., '_minimizer'))
+  dplyr::rename_with(~str_remove(., '_dedup_minimizer'))
 
 #merge the two data frames
 merged <- merge(samples_frac, blanks, by = "taxonomy_id", all = TRUE)
@@ -202,13 +209,13 @@ row_decontam <- which(contamdf.prev$contaminant)
 
 contaminant_info <- merged[row_decontam, c("taxonomy_id", "name.y")]
 
-write.csv(contaminant_info, file = "contaminant_species_t0.75_kraken_2024-standard.csv", row.names = FALSE)
+write.csv(contaminant_info, file = "contaminant_species_t0.75_dedup_kraken_2024-standard.csv", row.names = FALSE)
 
 #################################################
 ### REMOVE CONTAMINANT AND LOW ABUNDANCE TAXA ###
 #################################################
 
-contaminant_info <- readr::read_csv(file = 'contaminant_species_t0.75_kraken_2024-standard.csv')
+contaminant_info <- readr::read_csv(file = 'contaminant_species_t0.75_dedup_kraken_2024-standard.csv')
 #contaminant_info <- readr::read_csv(file = 'contaminant_species_t0.75_kraken_2024-standard_extra_added.csv')
 #contaminant_info <- readr::read_csv(file = 'contaminant_species_t0.75_kraken_2024-standard_extra_fish_added.csv')
 
@@ -332,7 +339,7 @@ ggplot(div_long, aes(x = Site, y = Value, fill = Site)) +
   guides(fill = guide_legend(ncol = 2, title = NULL))
 #  scale_y_continuous(labels = scales::number_format())
 
-ggsave("boxplots_alpha_diversity_t0.75_0.00001fracfilter_per_site.png", 
+ggsave("boxplots_alpha_diversity_t0.75_0.001fracfilter_per_site.png", 
        width = 12, height = 8)
 
 # Create scatterplot matrix
@@ -342,6 +349,7 @@ ggsave("boxplots_alpha_diversity_t0.75_0.00001fracfilter_per_site.png",
 # dev.off()
 
 # Add site info to dataframe 
+stats_kraken <- merge(stats, site_info, by = "Sample")
 stats_kraken$"Classified_reads" <- stats_kraken$"Classified_reads" * 100
 
 stats_kraken$Site <- factor(stats_kraken$Site, 
@@ -393,7 +401,7 @@ ggsave("alpha_diversity_0.001readfilt_per_sample.png",
 #########################################
 
 # CLR transformation with pseudocount added as data contains zeros
-CLR <- microbiome::transform(otu_frac, "clr", pseudocount = 0)
+CLR <- microbiome::transform(otu_frac, "clr")
 
 dim(CLR) #[1] 16 (samples) X (taxa)
 
@@ -429,10 +437,10 @@ pca_plot_data <- merge(pca_scores, site_info, by = "Sample")
 # Creates the plot
 ggplot(data = pca_plot_data, 
        aes(x = PC1, y = PC2, colour = Site, shape = Period)) + #, shape = Relatedness
-  geom_point(size = 7, alpha = 0.7) + 
+  geom_point(size = 7) + 
 #  stat_ellipse(aes(group = Site), level = 0.90) +
-  labs(x = "PC1 (18%)", #NOTE: put in PC values
-       y = "PC2 (17%)", #NOTE: put in PC values
+  labs(x = "PC1 (16%)", #NOTE: put in PC values
+       y = "PC2 (13%)", #NOTE: put in PC values
        title = "PCA with CLR transformation", size = 16) +
   scale_colour_brewer(palette = "Set1",
                      limits = c("Long_Bay", "Kahukura", 
@@ -446,19 +454,21 @@ ggplot(data = pca_plot_data,
   scale_shape_manual(values = c(17, 16), 
                      labels = c("Post-contact", "Pre-contact"),
                      guide = guide_legend(nrow = 2)) +
+  theme_minimal() +
   theme(
     plot.title = element_blank(),
 #    plot.title = element_text(size = 18, 
 #                              face = "bold", , hjust = 0.5),
-    legend.title = element_text(size = 18, face = "bold"), 
-    legend.text = element_text(size = 16),
-    legend.position = "bottom",  
-    legend.direction = "horizontal",
+    legend.position = "none",
+#    legend.title = element_text(size = 18, face = "bold"), 
+#    legend.text = element_text(size = 16),
+#    legend.position = "bottom",  
+#    legend.direction = "horizontal",
     axis.title.x = element_text(size = 20, face = "bold"),  # Change x-axis title size
     axis.title.y = element_text(size = 20, face = "bold")) 
 
-ggsave("PCA_CLR_decontam_t0.75_fraction0.01_2024-standard_minimizer_extra_env_removed.png", 
-       width = 10, height = 8)
+ggsave("pub_PCA_CLR_decontam_t0.75_fraction0.001_2024-standard_minimizer.png", 
+       width = 5.5, height = 5)
 
 # Calculate Euclidean distances between samples and create cluster dendrogram and heatmap
 euclidean_dist <- vegdist(CLR, method = "euclidean")
@@ -472,6 +482,13 @@ heatmap(as.matrix(euclidean_dist))
 ##########################
 
 #test for the different variables by changing the variable after ~
+permanova <- vegan::adonis2(CLR ~ Sex,
+                                   data = site_info,
+                                   method = "euclidean",
+                                   permutations = 9999)
+
+permanova
+
 permanova <- vegan::adonis2(CLR ~ Period,
                                    data = site_info,
                                    method = "euclidean",
@@ -479,26 +496,57 @@ permanova <- vegan::adonis2(CLR ~ Period,
 
 permanova
 
+permanova <- vegan::adonis2(CLR ~ Site,
+                            data = site_info,
+                            method = "euclidean",
+                            permutations = 9999)
+
+permanova
+
+permanova <- vegan::adonis2(CLR ~ Island,
+                            data = site_info,
+                            method = "euclidean",
+                            permutations = 9999)
+
+permanova
+
 #################################
 ######## DESeq2 ANALYSIS ########
 #################################
 
-# DESeq2 only works on count data, so tested otu_num and otu_frac turned into "count data"
-# Analysis in thesis based on the otu_frac approach
+# DESeq2 only works on count data, so turned otu_frac into "count data"
 otu_deseq <- otu_frac * 100000
-#otu_deseq <- otu_num
 
+# Test for various variables SITE, ISLAND, AND PERIOD by changing the data within () 
 dds <- DESeqDataSetFromMatrix(countData = round(t(otu_deseq)), 
                               colData = site_info, 
-                              design = ~ Period)
+                              design = ~ Site)
+
+# dds <- DESeqDataSetFromMatrix(countData = round(t(otu_deseq)), 
+#                               colData = site_info, 
+#                               design = ~ Island)
+# 
+# dds <- DESeqDataSetFromMatrix(countData = round(t(otu_deseq)), 
+#                               colData = site_info, 
+#                               design = ~ Period)
 
 dds <- DESeq(dds)
 
-# Test for various variables by changing the data within c()
-res <- results(dds, contrast = c("Period", 
-                                 "pre-contact", 
-                                 "post-contact")) %>%
+# Test for various variables by changing the data within c() 
+res <- results(dds, contrast = c("Site", 
+                                 "Long_Bay", 
+                                 "Kahukura")) %>%
   as.data.frame()
+
+# res <- results(dds, contrast = c("Island", 
+#                                  "North_Island", 
+#                                  "South_Island")) %>%
+#   as.data.frame()
+# 
+# res <- results(dds, contrast = c("Period", 
+#                                  "pre-contact", 
+#                                  "post-contact")) %>%
+#   as.data.frame()
 
 # View the results for the comparison
 head(res)
@@ -520,17 +568,8 @@ vulcano <- ggplot(res_all, aes(x = log2FoldChange, y = -log10(padj),
   geom_point(aes(color = padj < 0.01), alpha = 0.6) +
   scale_color_manual(values = c("grey", "red")) +
   theme_minimal() +
-  labs(title = "Volcano plot of Differentially Abundant Taxa North vs South", # NOTE change title
+  labs(title = "Volcano plot of Differentially Abundant Taxa Long Bay vs Kahukura", # NOTE change title
        x = "Log2 Fold Change", y = "-log10 Adjusted p-value")
-
-vulcano <- ggplot(res_all, aes(x = log2FoldChange, y = -log10(padj),
-                               text = paste("Taxid:", name))) +
-  geom_point(aes(color = abs(log2FoldChange) > 5 & padj < 0.01), alpha = 0.6) +
-  scale_color_manual(values = c("grey", "red")) +
-  theme_minimal() +
-  labs(title = "Volcano plot of Differentially Abundant Taxa North vs South",
-       x = "Log2 Fold Change", y = "-log10 Adjusted p-value")
-
 
 vulcano_interactive <- ggplotly(vulcano)
 
@@ -557,7 +596,9 @@ significant_info <- samples %>%
 significant_info <- merge(significant_info, 
   significant_taxid, by = "taxonomy_id", all = TRUE)
 
-#write.csv(significant_info, file = "significant_taxa_t0.75_c0.001_pre_vs_post-contact.csv", row.names = FALSE)
+#write.csv(significant_info, file = "significant_taxa_dedup_t0.75_c0.001_LB_vs_KH.csv", row.names = FALSE)
+#write.csv(significant_info, file = "significant_taxa_dedup_t0.75_c0.001_north_vs_south.csv", row.names = FALSE)
+#write.csv(significant_info, file = "significant_taxa_dedup_t0.75_c0.001_pre_vs_post.csv", row.names = FALSE)
 
 ###################################
 ######## MaAslin2 ANALYSIS ########
@@ -574,30 +615,72 @@ fit_data = Maaslin2(input_data     = CLR,
                     min_prevalence = 0,
                     normalization  = "NONE",
                     transform      = "NONE",
-                    output         = "Maaslin_Sex_CLR_output", 
+                    output         = "Maaslin_period_CLR_output", 
+                    fixed_effects  = c("Period"),
+                    heatmap_first_n = 100,
+                    max_pngs        = 150,
+                    reference      = c("Period,pre-contact")
+                    )
+
+fit_data = Maaslin2(input_data     = CLR, 
+                    input_metadata = maaslin_metadata, 
+                    min_prevalence = 0,
+                    normalization  = "NONE",
+                    transform      = "NONE",
+                    output         = "Maaslin_island_CLR_output", 
+                    fixed_effects  = c("Island"),
+                    heatmap_first_n = 100,
+                    max_pngs        = 150,
+                    reference      = c("Island,North_Island")
+)
+
+fit_data = Maaslin2(input_data     = CLR, 
+                    input_metadata = maaslin_metadata, 
+                    min_prevalence = 0,
+                    normalization  = "NONE",
+                    transform      = "NONE",
+                    output         = "Maaslin_sex_CLR_output", 
                     fixed_effects  = c("Sex"),
                     heatmap_first_n = 100,
                     max_pngs        = 150,
                     reference      = c("Sex,male")
-                    )
+)
+
+fit_data = Maaslin2(input_data     = CLR, 
+                    input_metadata = maaslin_metadata, 
+                    min_prevalence = 0,
+                    normalization  = "NONE",
+                    transform      = "NONE",
+                    output         = "Maaslin_site_KH_CLR_output", 
+                    fixed_effects  = c("Site"),
+                    heatmap_first_n = 100,
+                    max_pngs        = 150,
+                    reference      = c("Site,Kahukura")
+)
 
 ################################
 ### TOP X SPECIES COPROLITES ###
 ################################
 
-samples_frac <- as.data.frame(samples_frac)
-rownames(samples_frac) <- samples_frac[[1]]
-samples_frac <- samples_frac[, -c(1,2)]
+samples_frac <- dplyr::select(samples, 
+                              name, taxonomy_id, 
+                              contains("frac")) %>% 
+  dplyr::rename_with(~str_remove(., '_filtered.bracken_frac')) %>%
+  dplyr::rename_with(~str_remove(., '_dedup_minimizer'))
+
+samples_frac_df <- as.data.frame(samples_frac)
+rownames(samples_frac_df) <- samples_frac_df[[1]]
+samples_frac_df <- samples_frac_df[, -c(1,2)]
 
 # Sum across all samples for each taxonomy_id and get the top X
-top_taxa <- samples_frac %>%
+top_taxa <- samples_frac_df %>%
   rowSums() %>%
   sort(decreasing = TRUE) %>%
   head(21) %>%
   names()
 
 # Subset the OTU table to only include the top X
-otu_top20 <- samples_frac[top_taxa, ]
+otu_top20 <- samples_frac_df[top_taxa, ]
 
 ################################
 ### TOP X SPECIES PER SAMPLE ###
@@ -605,9 +688,9 @@ otu_top20 <- samples_frac[top_taxa, ]
 
 top_n <- 10
 
-sample_columns <- c(3:18)  # Replace with the actual column indices for your samples
+sample_columns <- c(1:16)  # Replace with the actual column indices for your samples
 
-sample_names <- colnames(samples_frac[sample_columns])
+sample_names <- colnames(samples_frac_df[sample_columns])
 
 results_list <- list()
 
@@ -625,7 +708,7 @@ for (sample_col in sample_names) {
 final_result <- do.call(cbind, results_list)
 
 ### Write the combined data frame to a CSV file
-write.csv(final_result, "top_species_standard2024.csv", row.names = FALSE)
+write.csv(final_result, "top_species_dedup_standard2024.csv", row.names = FALSE)
 
 ### print only the species names ##
 #species_only <- dplyr::select(final_result, 
@@ -655,7 +738,7 @@ p <- ggplot(frac_long, aes(x = Sample, y = fraction, fill = species, text = past
 interactive_plot <- ggplotly(p, tooltip = "text")
 interactive_plot
 htmlwidgets::saveWidget(interactive_plot, 
-                        "interactive_barplot_top10_species_standard2024_per_sample.html")
+                        "interactive_barplot_top10_species_dedup_standard2024_per_sample.html")
 
 #####################
 ### FISH SPOILERS ###
@@ -664,37 +747,18 @@ htmlwidgets::saveWidget(interactive_plot,
 otu_fish <- samples_frac[ , -(2)]
 otu_fish <- column_to_rownames(otu_fish, var = "name")
 
-fish_CLR <- microbiome::transform(otu_fish, "clr", pseudocount = 0)
-dim(fish_CLR)
-
-species_list <- c("Lactococcus cremoris", #"Lactococcus petauri", "Lactococcus garvieae", 
-                  "Brochothrix thermosphacta", "Carnobacterium maltaromaticum",
-                  "Photobacterium phosphoreum", "Photobacterium toruni",
-                  "Rhodococcus sp. 008", "Corynebacterium stationis",
-                  "Jeotgalicoccus sp. WY2", "Chryseobacterium balustinum",
-                  "Pseudoalteromonas nigrifaciens", "Pseudomonas bubulae",
-                  "Pseudomonas fragi", "Pseudomonas lundensis", "Pseudomonas psychrophile",
-                  "Psychrobacter alimentarius", "Psychrobacter sp. CLB018", 
-                  "Psychrobacter sp. WY6", "Psychrobacter sp. P11F6",
-                  "Shewanella baltica", "Shewanella sp. Pdp11", "Shewanella putrefaciens"
-                  )
-
-fish_CLR <- fish_CLR[rownames(fish_CLR) %in% species_list, ]
-
-column_order <- c("MS11679", "MS11683", "MS11684", "MS11686", "MS11770", "MS11771", 
-                  "MS11774", "MS11775", "MS11674", "MS11675", "MS11676", "MS11677", 
-                  "MS11678", "MS11669", "MS11670", "MS11673")
-
-fish_CLR <- fish_CLR[ , column_order]
-
 site_info <- read.csv("sample_site_info.csv", header=TRUE)
 meta_data <- site_info[1:16,]
 
 rownames(meta_data) <- meta_data$sample
 annotation_col <- meta_data["Site"]
 
+column_order <- c("MS11679", "MS11683", "MS11684", "MS11686", "MS11770", "MS11771", 
+                  "MS11774", "MS11775", "MS11674", "MS11675", "MS11676", "MS11677", 
+                  "MS11678", "MS11669", "MS11670", "MS11673")
+
 source_colors <- setNames(RColorBrewer::brewer.pal(length(unique(meta_data$Site)), "Set1"), 
-                           unique(meta_data$Site))
+                          unique(meta_data$Site))
 
 site_names <- c("Long_Bay", "Kahukura", 
                 "Whenua_Hou_pre", 
@@ -703,6 +767,30 @@ site_names <- c("Long_Bay", "Kahukura",
 # Extract colors from "Set1" palette (ensure enough colors are chosen)
 source_colors <- setNames(brewer.pal(n = length(site_names), "Set1"), site_names)
 
+species_list <- c(#"Lactococcus cremoris", 
+                  #"Lactococcus petauri", "Lactococcus garvieae", 
+                  "Brochothrix thermosphacta", "Carnobacterium maltaromaticum",
+                  "Photobacterium phosphoreum", "Photobacterium toruni",
+                  "Rhodococcus sp. 008", "Corynebacterium stationis",
+                  "Jeotgalicoccus sp. WY2", "Chryseobacterium balustinum",
+                  "Pseudoalteromonas nigrifaciens", "Pseudomonas bubulae",
+                  "Pseudomonas fragi", "Pseudomonas lundensis", 
+                  "Pseudomonas psychrophila", "Pseudomonas taetrolens", 
+                  "Psychrobacter alimentarius", "Psychrobacter sp. CLB018", 
+                  "Psychrobacter sp. WY6", "Psychrobacter sp. P11F6",
+                  "Shewanella baltica", "Shewanella sp. Pdp11", 
+                  "Shewanella putrefaciens", "Shewanella oncorhynchi",
+                  "Vibrio splendidus"
+                  )
+
+fish_CLR <- microbiome::transform(otu_fish, "clr", pseudocount = 0)
+dim(fish_CLR)
+
+#fish_CLR <- fish_CLR[grepl("Shewanella\\b", rownames(fish_CLR), ignore.case = TRUE), ]
+
+fish_CLR <- fish_CLR[rownames(fish_CLR) %in% species_list, ]
+
+fish_CLR <- fish_CLR[ , column_order]
 
 p <- pheatmap(fish_CLR, 
               annotation_col = annotation_col, 
@@ -735,11 +823,51 @@ legend <- get_legend(legend_plot)
 combined_plot <- plot_grid(p$gtable, legend, ncol = 1, rel_heights = c(1, 0.15))
 
 # Save to file (PDF or PNG)
-ggsave("heatmap_fish_spoilers_per_sample_no_clustering.png", 
-       combined_plot, width = 8, height = 10, bg = "white")
+ggsave("pub_heatmap_fish_spoilers_per_sample_no_clustering.png", 
+       combined_plot, width = 6, height = 10, bg = "white")
 
+#######################
+### DIET DETECTIONS ###
+#######################
 
-ggsave("heatmap_fish_spoilers_per_sample_no_clustering.png", plot = p, width = 8, height = 8)  
+fish_det <- read.csv("Diet_detections.csv", header=TRUE)
+fish <- as.matrix(fish_det[ , -1])
+rownames(fish) <- fish_det$Species
+
+site_info <- read.csv("sample_site_info.csv", header=TRUE)
+meta_data <- site_info[1:16,]
+
+rownames(meta_data) <- meta_data$sample
+annotation_col <- meta_data["Site"]
+
+column_order <- c("MS11679", "MS11683", "MS11684", "MS11686", "MS11770", "MS11771", 
+                  "MS11774", "MS11775", "MS11674", "MS11675", "MS11676", "MS11677", 
+                  "MS11678", "MS11669", "MS11670", "MS11673")
+
+source_colors <- setNames(RColorBrewer::brewer.pal(length(unique(meta_data$Site)), "Set1"), 
+                          unique(meta_data$Site))
+
+site_names <- c("Long_Bay", "Kahukura", 
+                "Whenua_Hou_pre", 
+                "Whenua_Hou_post")
+
+# Extract colors from "Set1" palette (ensure enough colors are chosen)
+source_colors <- setNames(brewer.pal(n = length(site_names), "Set1"), site_names)
+
+fish <- fish[ , column_order]
+
+p <- pheatmap(fish, 
+              annotation_col = annotation_col, 
+              annotation_colors = list(Site = source_colors),
+              color = c("grey35", "yellow2"),
+              show_colnames = TRUE, 
+              show_rownames = TRUE,
+              cluster_rows = FALSE, 
+              cluster_cols = FALSE,
+              legend = TRUE,
+              annotation_legend = FALSE)
+
+ggsave("heatmap_diet_per_sample_no_clustering.png", p, width = 5.5, height = 9, bg = "white")
 
 #######################
 ### LOSS OF SPECIES ###
@@ -752,17 +880,16 @@ period_CLR <- microbiome::transform(otu_period, "clr", pseudocount = 0)
 
 dim(period_CLR)
 
-species_list <- c(#"Streptococcus suis", 
-                  #"Streptococcus salivarius",
-                  #"Streptococcus thermophilus",
-                  "Bacteroides sp. A1C1",  
-                  "Bacteroides humanifaecis"#, 
-                  #"Bacteroides sp. HF-162",
-                  #"Fusobacterium animalis"
-)
-
-period_CLR <- period_CLR[rownames(period_CLR) %in% species_list, ]
-period_CLR <- period_CLR[grepl("^Streptococcus\\b", rownames(period_CLR), ignore.case = TRUE), ]
+# species_list <- c("Streptococcus suis", 
+#                   "Streptococcus salivarius",
+#                   "Streptococcus thermophilus",
+#                   "Bacteroides sp. A1C1",  
+#                   "Bacteroides humanifaecis"#, 
+#                   "Bacteroides sp. HF-162",
+#                   "Fusobacterium animalis")
+# 
+# period_CLR <- period_CLR[rownames(period_CLR) %in% species_list, ]
+#period_CLR <- period_CLR[grepl("^Streptococcus\\b", rownames(period_CLR), ignore.case = TRUE), ]
 period_CLR <- period_CLR[grepl("^Bacteroides\\b", rownames(period_CLR), ignore.case = TRUE), ]
 
 site_info <- read.csv("sample_site_info.csv", header=TRUE)
@@ -770,8 +897,8 @@ meta_data <- site_info[1:16,]
 
 period_CLR <- period_CLR[ , column_order]
 
-#annotation_col <- annotation_col %>% 
-#    rownames_to_column("Sample")
+annotation_col <- annotation_col %>% 
+    rownames_to_column("Sample")
 
 period_long <- period_CLR %>% 
   as.data.frame() %>%
@@ -820,7 +947,6 @@ combined_plot <- plot_grid(p$gtable, legend, ncol = 1, rel_heights = c(1, 0.15))
 ggsave("heatmap_temporal difference_no_clustering.png", 
        combined_plot, width = 8, height = 8, bg = "white")
 
-
 ggplot(period_long, aes(x = Site, y = Abundance, fill = Site)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.2, alpha = 0.6, size = 0.7) +
@@ -851,109 +977,14 @@ ggplot(period_long, aes(x = Site, y = Abundance, fill = Site)) +
     axis.title.y = element_text(size = 20)
   )
 
-ggsave("boxplots_pre-post_strepto_bacter.png", 
-       width = 10, height = 7)
-
-
-ggsave("heatmap_pre-post_per_sample_no_clustering.png", plot = p, width = 8, height = 8)  
-
-
-###############
-### VIRUSES ###
-###############
-
-otu_virus <- samples %>% 
-  filter(grepl("virus", !!sym(names(samples)[1]), ignore.case = TRUE))
-
-otu_virus <- otu_virus[ , -(2)]
-otu_virus <- column_to_rownames(otu_virus, var = "name")
-
-virusT <- t(otu_virus) %>%
-  as.data.frame()
-
-count_cut_off <- 100
-virusT <- virusT[, apply(virusT, 2, function(col) any(col >= count_cut_off))]
-
-virus_CLR <- microbiome::transform(virusT, "clr", pseudocount = 0)
-
-dim(virus_CLR)
-
-p <- pheatmap(t(virus_CLR), 
-         show_colnames = TRUE, 
-         show_rownames = TRUE,
-         cluster_rows = TRUE, 
-         cluster_cols = FALSE,
-         legend = TRUE)
-
-# Save the plot to a file (e.g., PNG)
-ggsave("heatmap_viruses_per_sample_clustering.png", plot = p, width = 8, height = 12)  
-
-tune_pca <- tune.pca(virus_CLR, ncomp = 10, scale = TRUE)
-variation <- as.data.frame(tune_pca$prop_expl_var) %>%
-  rownames_to_column()
-variation$PC <- rownames(variation)
-variation$cum <- tune_pca$cum.var
-
-ggplot(variation, aes(x = fct_inorder(PC), y = X)) +
-  geom_bar(stat = "identity", fill = "steelblue") +
-  #  geom_point(data = variation, aes(x = fct_inorder(PC), y = cum), 
-  #             color = "red") +
-  labs(title = "Variance Explained by Principal Components",
-       x = "Principal Component",
-       y = "Variance Explained (%)") +
-  theme_minimal() 
-#elbow occurs at 2
-
-#ggsave("Scree plot - variance explained principal components.png", 
-#       width = 12, height = 8)
-
-# PCA analysis on otu
-pca_result <- mixOmics::pca(virus_CLR, ncomp = 2, scale = TRUE, center = TRUE)
-plotIndiv(pca_result, comp = c(1, 2))
-#plotIndiv(pca_result, style = '3d') 
-
-
-pca_scores <- as.data.frame(pca_result$variates$X)  # Get scores for the components
-pca_scores$Sample <- rownames(pca_scores)  # Add sample names as a column
-
-# Merge PCA scores with site information
-pca_plot_data <- merge(pca_scores, site_info, by = "Sample")
-
-# Creates the plot
-ggplot(data = pca_plot_data, 
-       aes(x = PC1, y = PC2, colour = Site, shape = Period)) + #, shape = Relatedness
-  geom_point(size = 5, alpha = 0.7) + #size = 5, alpha = 0.7
-  #  stat_ellipse(aes(group = Site), level = 0.90) +
-  labs(x = "PC1 (29%)",
-       y = "PC2 (21%)",
-       title = "PCA viruses with CLR transformation") +
-  scale_colour_brewer(palette = "Set1",
-                      limits = c("Long_Bay", "Kahukura", 
-                                 "Whenua_Hou_pre", 
-                                 "Whenua_Hou_post"),
-                      labels = c("Long Bay pre-contact (n=4)", 
-                                 "Kahukura pre-contact (n=4)", 
-                                 "Whenua Hou pre-contact (n=5)", 
-                                 "Whenua Hou post-contact (n=3)"),
-                      guide = guide_legend(nrow = 2)) +
-  scale_shape_manual(values = c(17, 16), 
-                     labels = c("Post-contact", "Pre-contact"),
-                     guide = guide_legend(nrow = 2)) +
-  theme(
-    plot.title = element_text(size = 18, 
-                              face = "bold", , hjust = 0.5),
-    legend.title = element_text(size = 18, face = "bold"), 
-    legend.text = element_text(size = 16),
-    legend.position = "bottom",  
-    legend.direction = "horizontal",
-    axis.title.x = element_text(size = 16),  # Change x-axis title size
-    axis.title.y = element_text(size = 16)) 
+#ggsave("boxplots_pre-post_strepto_bacter.png", 
+#       width = 10, height = 7)
 
 ######################################################################
 #### COMPARISON MODERN AND SEDIMENT SAMPLES TOP X SPECIES OVERALL ####
 ######################################################################
 
-merged <- read.csv("combined_kuri_sources_bracken_species_march2025.csv", header=TRUE)
+merged <- read.csv("combined_kuri_sources_bracken_species_july2026.csv", header=TRUE)
 
 merged <- dplyr::select(merged,
                         name, taxonomy_id,
@@ -961,7 +992,8 @@ merged <- dplyr::select(merged,
   dplyr::rename_with(~str_remove(., '_kraken_standard2024_conf0.50.txt_filtered.bracken_num')) %>%
   dplyr::rename_with(~str_remove(., '_filtered.bracken_num')) %>%
   dplyr::rename_with(~str_remove(., '.bracken_num')) %>%
-  dplyr::rename_with(~str_remove(., '_minimizer')) %>%
+  dplyr::rename_with(~str_remove(., '_dedup_minimizer')) %>%
+#  dplyr::rename_with(~str_remove(., 'minimizer')) %>%
   column_to_rownames(var = "name")
 
 merged <- merged[ , -(1)]
@@ -970,14 +1002,18 @@ merged <- merged[ , -(1)]
 top_taxa <- merged %>%
   rowSums() %>%
   sort(decreasing = TRUE) %>%
-  head(100) %>%
+  head(21) %>%
   names()
 
+top_taxa_df <- data.frame(
+  Taxon = rownames(merged),
+  Total_Abundance = rowSums(merged))
+
 # Clr transform for better visualization
-otu_top20_clr <- microbiome::transform(merged, "clr", pseudocount = 0)
+otu_top20_clr <- microbiome::transform(merged, "clr")
 
 # Subset the OTU table to only include the top X
-otu_top20_clr <- otu_top20_clr[grepl("^Helicobacter\\b", rownames(otu_top20_clr), ignore.case = TRUE), ]
+#otu_top20_clr <- otu_top20_clr[grepl("^Helicobacter\\b", rownames(otu_top20_clr), ignore.case = TRUE), ]
 otu_top20_clr <- otu_top20_clr[top_taxa, ]
 
 #remove sample names and give colours
@@ -991,17 +1027,6 @@ source_colors <- setNames(RColorBrewer::brewer.pal(length(unique(meta_data$Sourc
 
 otu_top20_clr <- otu_top20_clr[, meta_data$sample]
 
-otu_top20_clr <- otu_top20_clr[, !colnames(otu_top20_clr) %in% c("ERR3761400", "ERR3761401",
-                                                                 "ERR3761402", "ERR3761404",
-                                                                 "ERR3761405", "ERR3761406",
-                                                                 "ERR10114881", "SRR7774469",
-                                                                 "SRR7774472", "SRR7774473",
-                                                                 "SRR7774471", "SRR7774474",
-                                                                 "SRR7774476", "SRR7774477",
-                                                                 "Blank1_WH", "Blank2_WH",
-                                                                 "KH_blank_1", "KH_blank_2", 
-                                                                 "LB_blank_1", "LB_blank_2")]
-
 p <- pheatmap(otu_top20_clr, 
               annotation_col = annotation_col, 
               annotation_colors = list(Source = source_colors),
@@ -1010,10 +1035,10 @@ p <- pheatmap(otu_top20_clr,
               cluster_rows = TRUE, 
               cluster_cols = FALSE) 
 
-Human        Dog_India         Dog_Laos Dog_South_Africa 
-"#E41A1C"        "#377EB8"        "#4DAF4A"        "#984EA3" 
-Dog_USA             Kuri         Sediment          NZ_bone 
-"#FF7F00"        "#FFFF33"        "#A65628"        "#F781BF" 
+#Human        Dog_India         Dog_Laos Dog_South_Africa 
+#"#E41A1C"        "#377EB8"        "#4DAF4A"        "#984EA3" 
+#Dog_USA             Kuri         Sediment          NZ_bone 
+#"#FF7F00"        "#FFFF33"        "#A65628"        "#F781BF" 
 
 annotation_col$Source <- factor(annotation_col$Source, levels = names(source_colors))
 
@@ -1049,6 +1074,8 @@ df$Taxon <- rownames(df)
 df_long <- melt(df, id.vars = "Taxon",
                 variable.name = "Sample", value.name = "Abundance")
 
+df_long$Taxon <- factor(df_long$Taxon, levels = top_taxa)
+
 # Add Source info from annotation_col
 df_long <- df_long %>%
   left_join(annotation_col %>% tibble::rownames_to_column("Sample"),
@@ -1060,7 +1087,7 @@ p <- ggplot(df_long, aes(x = Source, y = Abundance, fill = Source)) +
   geom_jitter(width = 0.2, alpha = 0.6, size = 0.7) +
   facet_wrap(~ Taxon, scales = "free_y", ncol = 3) +
   theme_bw() +
-  labs(title = "Top 20 bacterial species in coprolites",
+  labs(title = "Top 21 bacterial species in coprolites",
        x = "Source", y = "CLR abundance",) +
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1, size = 16),
@@ -1076,7 +1103,7 @@ p <- ggplot(df_long, aes(x = Source, y = Abundance, fill = Source)) +
     strip.text = element_text(size = 18)
   )
 
-ggsave("Boxplot_modern_helicobacter.png", plot = p, 
+ggsave("Boxplot_modern_top21_overall.png", plot = p, 
        width = 12, height = 14,bg = "white")  
 #ggsave("heatmap_top100_species_all_samples_overall_clustering_filter_march2025.png", plot = p, width = 12, height = 12)  
 
@@ -1113,18 +1140,6 @@ otu_top_matrix <- as.matrix(column_to_rownames(otu_top_df, var = "Species"))
 # Log transform for better visualization
 otu_top_clr <- microbiome::transform(otu_top_matrix, "clr", pseudocount = 0)
 
-# Create heatmap 
-otu_top_clr <- otu_top_clr[, !colnames(otu_top_clr) %in% c("ERR3761400", "ERR3761401",
-                                                           "ERR3761402", "ERR3761404",
-                                                           "ERR3761405", "ERR3761406",
-                                                           "ERR10114881", "SRR7774469",
-                                                           "SRR7774472", "SRR7774473",
-                                                           "SRR7774471", "SRR7774474",
-                                                           "SRR7774476", "SRR7774477",
-                                                           "Blank1_WH", "Blank2_WH",
-                                                           "KH_blank_1", "KH_blank_2", 
-                                                           "LB_blank_1", "LB_blank_2")]
-
 p <- pheatmap(otu_top_clr, 
               annotation_col = annotation_col, 
               annotation_colors = list(source = source_colors),
@@ -1133,26 +1148,15 @@ p <- pheatmap(otu_top_clr,
               cluster_rows = TRUE, 
               cluster_cols = TRUE) 
 
-#ggsave("heatmap_top3_species_all_samples_clustering.png", plot = p, width = 24, height = 36)  
+ggsave("heatmap_top3_species_all_samples_clustering.png", plot = p, width = 24, height = 36)  
 
 #########################################
 #### TOP COPROLITE SPECIES COMPARISON ###
 #########################################
 
-merged_clr <- microbiome::transform(merged, "clr", pseudocount = 0)
+merged_clr <- microbiome::transform(merged, "clr")
 
 merged_clr <- merged_clr[, meta_data$sample]
-
-merged_clr <- merged_clr[, !colnames(merged_clr) %in% c("ERR3761400", "ERR3761401",
-                                                           "ERR3761402", "ERR3761404",
-                                                           "ERR3761405", "ERR3761406",
-                                                           "ERR10114881", "SRR7774469",
-                                                           "SRR7774472", "SRR7774473",
-                                                           "SRR7774471", "SRR7774474",
-                                                           "SRR7774476", "SRR7774477",
-                                                           "Blank1_WH", "Blank2_WH",
-                                                           "KH_blank_1", "KH_blank_2", 
-                                                           "LB_blank_1", "LB_blank_2")]
 
 merged_clr <- merged_clr[rownames(merged_clr) %in% c(rownames(otu_top20)), ]
 
@@ -1196,18 +1200,44 @@ ggsave("boxplots_top21_species_in_coprolites_vs_modern_sources.png",
 ### MAASLIN ANLYSIS MODERN COMPARISON ###
 #########################################
 
-fit_data = Maaslin2(input_data      = otu_top20_clr, 
+merged <- read.csv("combined_kuri_sources_bracken_species_july2026.csv", header=TRUE)
+
+merged <- dplyr::select(merged,
+                        name, taxonomy_id,
+                        contains("num")) %>%
+  dplyr::rename_with(~str_remove(., '_kraken_standard2024_conf0.50.txt_filtered.bracken_num')) %>%
+  dplyr::rename_with(~str_remove(., '_filtered.bracken_num')) %>%
+  dplyr::rename_with(~str_remove(., '.bracken_num')) %>%
+  dplyr::rename_with(~str_remove(., '_dedup_minimizer')) %>%
+  #  dplyr::rename_with(~str_remove(., 'minimizer')) %>%
+  column_to_rownames(var = "name")
+
+merged <- merged[ , -(1)]
+
+# Sum across all samples for each taxonomy_id and get the top X
+top_taxa <- merged %>%
+  rowSums() %>%
+  sort(decreasing = TRUE) %>%
+  head(200) %>%
+  names()
+
+# Clr transform for better visualization
+otu_top200_clr <- microbiome::transform(merged, "clr")
+
+otu_top200_clr <- otu_top200_clr[top_taxa, ]
+
+annotation_col <- meta_data["Source"]
+
+fit_data = Maaslin2(input_data      = otu_top200_clr, 
                     input_metadata  = annotation_col, 
                     min_prevalence  = 0,
                     normalization   = "NONE",
                     transform       = "NONE",
-                    output          = "Maaslin_Laos_CLR_output", 
+                    output          = "Maaslin_Kuri_CLR_output", 
                     fixed_effects   = c("Source"),
                     heatmap_first_n = 100,
                     max_pngs        = 100,
-                    reference       = c("Source,Dog_Laos")
-)
-
+                    reference       = c("Source,Kuri"))
 
 ##################################
 ### TOP X SPECIES BLANK & BONE ###
@@ -1264,5 +1294,6 @@ p <- ggplot(frac_long, aes(x = Sample, y = fraction, fill = species, text = past
 # Convert ggplot to an interactive plotly plot
 interactive_plot <- ggplotly(p, tooltip = "text")
 interactive_plot
-htmlwidgets::saveWidget(interactive_plot, 
-                        "interactive_barplot_top10_species_standard2024_per_sample.html")
+
+#htmlwidgets::saveWidget(interactive_plot, 
+#                        "interactive_barplot_top10_species_standard2024_per_sample.html")

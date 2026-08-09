@@ -39,4 +39,3 @@ if __name__ == "__main__":
 
     # Default threshold is 100 distinct kmers
     filter_kraken_report(input_file, output_file, kmer_threshold=100)
-
