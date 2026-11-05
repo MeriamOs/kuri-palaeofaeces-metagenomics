@@ -25,7 +25,7 @@ map_dir=/nesi/nobackup/uoo02328/meriam/coprolite_analysis/04-analysis/bacterial_
 # bwa-specific option for seed length (-l)
 seedlength=1024
 # bwa-specific option for error rate (-n)
-error_rate=0.03
+error_rate=0.1
 # bwa-specific option for gap opens (-o)
 gapopens=2
 # threads for bwa (-t) and samtools (-@)
