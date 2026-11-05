@@ -33,7 +33,7 @@ nextflow run nf-core/eager \
 --damage_calculation_tool 'mapdamage' --mapdamage_downsample 100000 \
 --run_genotyping --genotyping_tool 'ug' \
 --gatk_ploidy 1 --gatk_ug_out_mode 'EMIT_ALL_SITES' --gatk_ug_genotype_model 'SNP' \
---run_vcf2genome --vcf2genome_minc 3 --vcf2genome_minfreq 0.66 \
+--run_vcf2genome --vcf2genome_minc 7 --vcf2genome_minfreq 0.8 \
 -resume 
 
 #clean up intermediate files
